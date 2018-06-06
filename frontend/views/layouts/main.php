@@ -59,7 +59,7 @@ http://www.templatemo.com/tm-506-tinker
             ['label' => 'Contact Us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'contact-us']],
         ],
         'options' => ['class' => 'nav navbar-nav', 'id' => 'main-nav'],
-      
+
     ]);
 
     NavBar::end();
@@ -84,6 +84,11 @@ http://www.templatemo.com/tm-506-tinker
 
     <script type="text/javascript">
     $(document).ready(function() {
+        // mobile nav toggle
+        $('.navbar-toggle').on('click', function (event) {
+            event.preventDefault();
+            $(this).toggleClass("open");
+        });
         // navigation click actions 
         $('.scroll-link').on('click', function(event){
             event.preventDefault();
@@ -95,20 +100,19 @@ http://www.templatemo.com/tm-506-tinker
             event.preventDefault();
             $('html, body').animate({scrollTop:0}, 'slow');         
         });
-        // mobile nav toggle
-        $('.nav-toggle').on('click', function (event) {
-            event.preventDefault();
-            $('#main-nav').toggleClass("open");
-        });
+
     });
     // scroll function
     function scrollToID(id, speed){
         var offSet = 50;
         var targetOffset = $(id).offset().top - offSet;
-        var mainNav = $('#main-nav');
+        //phone view nav icon
+        var mainNav = $('.navbar-toggle');
+        //Class items mainNav
+        var secNav = $('.navbar-collapse');
         $('html,body').animate({scrollTop:targetOffset}, speed);
         if (mainNav.hasClass("open")) {
-            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            secNav.css("height", "1px").removeClass("in").addClass("collapse");
             mainNav.removeClass("open");
         }
     }
