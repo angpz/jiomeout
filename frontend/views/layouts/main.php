@@ -10,7 +10,10 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
+
 AppAsset::register($this);
+
+date_default_timezone_set("Asia/Kuala_Lumpur");
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -27,53 +30,42 @@ http://www.templatemo.com/tm-506-tinker
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-        
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/fontAwesome.css">
-        <link rel="stylesheet" href="css/hero-slider.css">
-        <link rel="stylesheet" href="css/owl-carousel.css">
-        <link rel="stylesheet" href="css/templatemo-style.css">
-        <link rel="stylesheet" href="css/lightbox.css">
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-         <?= Html::csrfMetaTags() ?>
+        <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
 <body>
 <?php $this->beginBody() ?>
+<div class="header">
+    <div class= "container">
 
-<div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' =>' <em>Jio</em>meout',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => '',
+            'class' => 'navbar navbar-inverse',
+            'role' => 'navigation',
         ],
     ]);
- 
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
+    echo Nav::widget([
+        'items' => [
+            ['label' => 'Home', 'url' =>  '#','options'=>['class'=>'scroll-top']],
+            ['label' => 'About us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'about']],
+            ['label' => 'Portfolio', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'portfolio']],
+            ['label' => 'Blog', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'blog']],
+            ['label' => 'Contact Us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'contact-us']],
+        ],
+        'options' => ['class' => 'nav navbar-nav', 'id' => 'main-nav'],
+      
+    ]);
+
     NavBar::end();
     ?>
-
+    </div>
+</div>
     <div>
         <?= Alert::widget() ?>
         <?= $content ?>
@@ -88,7 +80,47 @@ http://www.templatemo.com/tm-506-tinker
     </div>
 </footer>
 
-<?php $this->endBody() ?>
+<?php $this->endBody() ?>   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // navigation click actions 
+        $('.scroll-link').on('click', function(event){
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function(event) {
+            event.preventDefault();
+            $('html, body').animate({scrollTop:0}, 'slow');         
+        });
+        // mobile nav toggle
+        $('.nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed){
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({scrollTop:targetOffset}, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function() { }
+        };
+    }
+    </script>
+
 </body>
 </html>
 <?php $this->endPage() ?>
+
+
