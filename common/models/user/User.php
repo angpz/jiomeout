@@ -62,4 +62,9 @@ class User extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public function getUserDetail()
+    {
+        return $this->hasOne(User::className(),['uid' =>'id']);
+    }
 }

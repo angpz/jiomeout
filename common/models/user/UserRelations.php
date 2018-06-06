@@ -41,4 +41,14 @@ class UserRelations extends \yii\db\ActiveRecord
             'foreign_uid' => 'Foreign Uid',
         ];
     }
+
+    public function getPrimaryUser()
+    {
+        return $this->hasOne(User::className(),['id' =>'primary_uid']);
+    }
+
+    public function getForeignUser()
+    {
+        return $this->hasOne(User::className(),['id' =>'foreign_uid']);
+    }
 }

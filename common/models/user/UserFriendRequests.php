@@ -3,7 +3,7 @@
 namespace common\models\user;
 
 use Yii;
-
+use common\models\user\User;
 /**
  * This is the model class for table "user_friend_requests".
  *
@@ -26,8 +26,8 @@ class UserFriendRequests extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['primary_uid', 'request_uid'], 'required'],
-            [['primary_uid', 'request_uid'], 'integer'],
+            [['requester_uid', 'request_uid'], 'required'],
+            [['requester_uid', 'request_uid'], 'integer'],
         ];
     }
 
@@ -37,8 +37,18 @@ class UserFriendRequests extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'primary_uid' => 'Primary Uid',
+            'requester_uid' => 'Requester Uid',
             'request_uid' => 'Request Uid',
         ];
+    }
+
+    public function getRequester()
+    {
+        return $this->hasOne(User::className(),['id' =>'requester_uid']);
+    }
+
+    public function getReceiver()
+    {
+        return $this->hasOne(User::className(),['id' =>'request_uid']);
     }
 }
