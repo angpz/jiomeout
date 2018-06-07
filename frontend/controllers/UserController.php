@@ -17,7 +17,7 @@ class UserController extends Controller
                  'class' => AccessControl::className(),
                  'rules' => [
                     [
-                        'actions' => ['find-friends','add-friend','friends','ignore-friend','accept-friend'],
+                        'actions' => ['friends','find-friends','pending-friends','add-friend','ignore-friend','accept-friend','delete-friend'],
                         'allow' => true,
                         'roles' => ['@'],
 
@@ -48,6 +48,13 @@ class UserController extends Controller
     		
     	}
     	return $this->render('find-friends',['user'=>$user]);
+    }
+
+    public function actionPendingFriends()
+    {
+    	$request = UserFriendRequests::find()->where('request_uid = :ru',[':ru'=>Yii::$app->user->identity->id])->joinWith('requester','receiver')->all();
+
+    	return $this->render('pending-friends',['request'=>$request]);
     }
 
     public function actionAddFriend($id)
@@ -99,6 +106,19 @@ class UserController extends Controller
     		$relation2->save();
     		$request->delete();
     		Yii::$app->session->setFlash('success','Success!');
+    	}
+    	return $this->redirect(['/user/friends']);
+    }
+
+    public function actionDeleteFriend($id)
+    {
+    	$relation = UserRelations::find()->andWhere(['=','primary_uid',Yii::$app->user->identity->id])->andWhere(['=','foreign_uid',$id])->one();
+    	$relation2 = UserRelations::find()->andWhere(['=','primary_uid',$id])->andWhere(['=','foreign_uid',Yii::$app->user->identity->id])->one();
+
+    	if (!empty($relation) || !empty($relation2)) {
+    		$relation->delete();
+    		$relation2->delete();
+    		Yii::$app->session->setFlash('warning','Deleted!');
     	}
     	return $this->redirect(['/user/friends']);
     }
