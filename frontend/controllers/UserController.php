@@ -17,7 +17,7 @@ class UserController extends Controller
                  'class' => AccessControl::className(),
                  'rules' => [
                     [
-                        'actions' => ['find-friends','add-friend','friends'],
+                        'actions' => ['find-friends','add-friend','friends','ignore-friend','accept-friend'],
                         'allow' => true,
                         'roles' => ['@'],
 
@@ -31,7 +31,7 @@ class UserController extends Controller
     {
     	$friends = UserRelations::find()->where('primary_uid = :pu',[':pu'=>Yii::$app->user->identity->id])->joinWith('primaryUser','foreignUser')->all();
     	$request = UserFriendRequests::find()->where('request_uid = :ru',[':ru'=>Yii::$app->user->identity->id])->joinWith('requester','receiver')->all();
-    	
+
     	return $this->render('friends',['friends'=>$friends,'request'=>$request]);
     }
 
@@ -56,7 +56,7 @@ class UserController extends Controller
 
     	if (!empty($user)) {
     		$request = new UserFriendRequests();
-    		$request['primary_uid'] = Yii::$app->user->identity->id;
+    		$request['requester_uid'] = Yii::$app->user->identity->id;
     		$request['request_uid'] = $user['id'];
     		if ($request->validate()) {
     			$request->save();
@@ -65,7 +65,64 @@ class UserController extends Controller
     		else{
     			Yii::$app->session->setFlash('warning','Failed!');
     		}
-    		return $this->redirect(['/user/find-friends']);
+    		return $this->redirect(Yii::$app->request->referrer);
     	}
+    }
+
+    //in ignore friend action, $id = requester id
+    public function actionIgnoreFriend($id)
+    {
+    	//find requester_uid = $id, request_uid = self_id
+    	$request = UserFriendRequests::find()->andWhere(['=','requester_uid',$id])->andWhere(['=','request_uid',Yii::$app->user->identity->id])->one();
+
+    	if (!empty($request)) {
+    		$request->delete();
+    		Yii::$app->session->setFlash('warning','Deleted!');
+    	}
+    	return $this->redirect(['/user/friends']);
+    }
+
+    public function actionAcceptFriend($id)
+    {
+    	$request = UserFriendRequests::find()->andWhere(['=','requester_uid',$id])->andWhere(['=','request_uid',Yii::$app->user->identity->id])->one();
+
+    	$relation = new UserRelations();
+    	$relation['primary_uid'] = Yii::$app->user->identity->id;
+    	$relation['foreign_uid'] = $id;
+
+    	$relation2 = new UserRelations();
+    	$relation2['foreign_uid'] = Yii::$app->user->identity->id;
+    	$relation2['primary_uid'] = $id;
+
+    	if ($relation->validate() && $relation2->validate()) {
+    		$relation->save();
+    		$relation2->save();
+    		$request->delete();
+    		Yii::$app->session->setFlash('success','Success!');
+    	}
+    	return $this->redirect(['/user/friends']);
+    }
+
+    //the passed $id is others' uid
+    public static function checkFriendValid($id)
+    {
+    	$data = array();
+    	$request = UserFriendRequests::find()->andWhere(['=','requester_uid',Yii::$app->user->identity->id])->andWhere(['=','request_uid',$id])->one();
+    	$relation = UserRelations::find()->andWhere(['=','primary_uid',Yii::$app->user->identity->id])->andWhere(['=','foreign_uid',$id])->one();
+
+    	if (!empty($request)) {
+    		$data['valid'] = true;
+    		$data['message'] ='Friend Request Sent';
+    	}
+    	elseif (!empty($relation)) {
+    		$data['valid'] = true;
+    		$data['message'] ='We are Friend!';
+    	}
+    	else{
+    		$data['valid'] = false;
+    		$data['message'] ='';
+    	}
+
+    	return $data;
     }
 }

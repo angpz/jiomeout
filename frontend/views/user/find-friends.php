@@ -7,12 +7,12 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use frontend\assets\UserAsset;
-
+use frontend\controllers\UserController;
 UserAsset::register($this);
 $this->title = '"Jio" Your Friends!';
 
 ?>
-<div class="site-login">
+<div class="container">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
@@ -38,7 +38,14 @@ $this->title = '"Jio" Your Friends!';
                             <td>
                                 <font class="font-result"><?= $value['username']; ?></font>
                             </td>
-                            <td><?= Html::a('Request',['/user/add-friend','id'=>$value['id']],['class'=>'btn btn-success']) ?></td>
+                            <td>
+                                <?php $data = UserController::checkFriendValid($value['id']); 
+                                if ($data['valid'] == true): ?>
+                                    <?= $data['message']; ?>
+                                <?php else: ?>
+                                    <?= Html::a('Request',['/user/add-friend','id'=>$value['id']],['class'=>'btn btn-success']) ?>        
+                                <?php endif;?>
+                            </td>
                         </tr>
                     <?php endforeach;?>
                 </table>
