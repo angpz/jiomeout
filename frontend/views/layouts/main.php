@@ -9,8 +9,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-
-
+use yii\helpers\Url;
+use frontend\controllers\CommonController;
 AppAsset::register($this);
 
 date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -50,14 +50,11 @@ http://www.templatemo.com/tm-506-tinker
             'role' => 'navigation',
         ],
     ]);
+
+    $menuItems = CommonController::menuItems();
+
     echo Nav::widget([
-        'items' => [
-            ['label' => 'Home', 'url' =>  '#','options'=>['class'=>'scroll-top']],
-            ['label' => 'About us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'about']],
-            ['label' => 'Portfolio', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'portfolio']],
-            ['label' => 'Blog', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'blog']],
-            ['label' => 'Contact Us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'contact-us']],
-        ],
+        'items' => $menuItems,
         'options' => ['class' => 'nav navbar-nav', 'id' => 'main-nav'],
 
     ]);

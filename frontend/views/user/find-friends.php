@@ -18,7 +18,7 @@ UserAsset::register($this);
             <div class="friend-nav">
                 <ul>
                     <li><?= Html::a('Friend List',['/user/friends']); ?></li>
-                    <li><?= Html::a('Pending',['/']); ?></li>
+                    <li><?= Html::a('Pending',['/user/pending-friends']); ?></li>
                     <li><?= Html::a('Suggestion',['/user/find-friends'],['class'=>'active']); ?></li>
                 </ul>
             </div>
