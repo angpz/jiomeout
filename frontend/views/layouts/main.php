@@ -63,7 +63,7 @@ http://www.templatemo.com/tm-506-tinker
     ?>
     </div>
 </div>
-    <div>
+    <div class='wrap'>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>

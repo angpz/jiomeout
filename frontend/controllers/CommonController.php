@@ -91,6 +91,7 @@ class CommonController extends Controller
     {
         $menuItems = array();
         $menuItems[] = ['label' => 'Calendar', 'url' => '#'];
+        $menuItems[] = ['label' => 'Events', 'url' => '#'];
         $menuItems[] = ['label' => 'Friends', 'url' => Url::to(['/user/friends'])];
         $menuItems[] = ['label' => 'Setting', 'url' => '#'];
         $menuItems[] = ['label' => 'Sign Out', 'url' => Url::to(['/site/logout'])];

@@ -18,6 +18,7 @@ class AppAsset extends AssetBundle
         'css/owl-carousel.css',
         'css/templatemo-style.css',
         'css/lightbox.css',
+        'css/site.css',
     ];
     public $js = [
         'js/main.js',

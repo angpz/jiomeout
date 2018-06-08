@@ -11,7 +11,7 @@ use frontend\assets\UserAsset;
 UserAsset::register($this);
 
 ?>
-<div class="container white-background top-spacing">
+<div class="container white-background">
     <div class="row">
         <div class="col-lg-5">
             <div class="friend-nav">
@@ -21,9 +21,10 @@ UserAsset::register($this);
                     <li><?= Html::a('Suggestion',['/user/find-friends']); ?></li>
                 </ul>
             </div>
-            <?php if (!empty($request)) : ?>
-                <table class='table table-hover table-result'>
 
+            <table class='table table-hover table-result'>
+
+            <?php if (!empty($request)) : ?>
                     <?php foreach ($request as $k => $value) :?>
                         <tr>
                             <td>
@@ -35,22 +36,18 @@ UserAsset::register($this);
                             </td>
                         </tr>
                     <?php endforeach;?>
-                
             <?php endif;?>
 
             <?php if(!empty($friends)) : ?>
-                 
                     <?php foreach ($friends as $ke => $friend) : ?>
                         <tr>
                             <td><font class="font-result"><?= $friend['foreignUser']['username']; ?></font></td>
                             <td><?= Html::a('Delete',['/user/delete-friend','id'=>$friend['foreign_uid']],['data-confirm'=>'Are you sure?','class'=>'btn btn-warning']); ?></td>
 
                         </tr>
-                        
                     <?php endforeach;?>
-                </table>
-            <?php endif;?>
-
+                <?php endif;?>
+            </table>
         </div>
     </div>
 </div>
