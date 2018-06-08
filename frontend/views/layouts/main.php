@@ -52,7 +52,7 @@ http://www.templatemo.com/tm-506-tinker
     ]);
     echo Nav::widget([
         'items' => [
-            ['label' => 'Home', 'url' =>  '#','options'=>['class'=>'scroll-top']],
+            ['label' => 'Home', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'home']],
             ['label' => 'About us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'about']],
             ['label' => 'Portfolio', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'portfolio']],
             ['label' => 'Blog', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'blog']],
@@ -80,8 +80,9 @@ http://www.templatemo.com/tm-506-tinker
     </div>
 </footer>
 
-<?php $this->endBody() ?>   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<?php $this->endBody() ?>   
 
+   <!---phone nav js --->
     <script type="text/javascript">
     $(document).ready(function() {
         // mobile nav toggle
@@ -95,12 +96,7 @@ http://www.templatemo.com/tm-506-tinker
             var sectionID = $(this).attr("data-id");
             scrollToID('#' + sectionID, 750);
         });
-        // scroll to top action
-        $('.scroll-top').on('click', function(event) {
-            event.preventDefault();
-            $('html, body').animate({scrollTop:0}, 'slow');         
-        });
-
+     
     });
     // scroll function
     function scrollToID(id, speed){
