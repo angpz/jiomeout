@@ -9,6 +9,8 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+
+
 use yii\helpers\Url;
 use frontend\controllers\CommonController;
 AppAsset::register($this);
@@ -54,7 +56,9 @@ http://www.templatemo.com/tm-506-tinker
     $menuItems = CommonController::menuItems();
 
     echo Nav::widget([
+
         'items' => $menuItems,
+
         'options' => ['class' => 'nav navbar-nav', 'id' => 'main-nav'],
 
     ]);
@@ -77,8 +81,9 @@ http://www.templatemo.com/tm-506-tinker
     </div>
 </footer>
 
-<?php $this->endBody() ?>   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<?php $this->endBody() ?>   
 
+   <!---phone nav js --->
     <script type="text/javascript">
     $(document).ready(function() {
         // mobile nav toggle
@@ -92,12 +97,7 @@ http://www.templatemo.com/tm-506-tinker
             var sectionID = $(this).attr("data-id");
             scrollToID('#' + sectionID, 750);
         });
-        // scroll to top action
-        $('.scroll-top').on('click', function(event) {
-            event.preventDefault();
-            $('html, body').animate({scrollTop:0}, 'slow');         
-        });
-
+     
     });
     // scroll function
     function scrollToID(id, speed){

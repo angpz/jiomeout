@@ -16,7 +16,7 @@ class AppAsset extends AssetBundle
         'css/fontAwesome.css',
         'css/hero-slider.css',
         'css/owl-carousel.css',
-        'css/templatemo-style.css',
+        'css/templatemo-style.css', //index main css
         'css/lightbox.css',
         'css/site.css',
     ];
