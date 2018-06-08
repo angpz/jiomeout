@@ -13,3 +13,36 @@
 .white-background{
     background-color: #ffffff;
 }
+
+.top-spacing{
+    padding-top: 10px;
+    padding-bottom: 10%;
+}
+
+.friend-nav ul{
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.friend-nav li {
+    float: left;
+}
+
+.friend-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.friend-nav li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.friend-nav .active {
+    background-color: #6696ff;
+}

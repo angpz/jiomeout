@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 
+
 /**
  * Site controller
  */
@@ -153,9 +154,10 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             $model = new SignupForm();
             if ($model->load(Yii::$app->request->post())) {
+
                 if ($user = $model->signup()) {
                     if (Yii::$app->getUser()->login($user)) {
-                        return $this->goHome();
+                        return $this->redirect(['/site/index']);
                     }
                 }
             }
@@ -218,4 +220,8 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
+
+   
 }
