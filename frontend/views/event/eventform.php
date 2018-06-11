@@ -33,6 +33,7 @@ $this->title ='Create an Event';
                         'format' => 'yyyy-mm-dd hh:ii:ss',
                         'autoclose'=>true,
                         'startDate' => date('Y-m-d H:ii:ss'), 
+
                     ]
                 ]); ?>
                                 

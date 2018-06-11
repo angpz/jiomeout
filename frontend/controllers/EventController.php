@@ -19,17 +19,18 @@ class EventController extends Controller
         $model = new CreateEventForm();
            
         if($model->load(Yii::$app->request->post())){
-            $model->endtime=strtotime($model->endtime);
-            $model->poll_close_time=strtotime($model->poll_close_time);
-            var_dump($model);exit;
-            if ($events = $model->eventform()) {
-                
-                Yii::$app->getSession()->setFlash('success','Verification email sent! Kindly check email and validate your account.');
+            $event=$model->eventform();
+
+            if($event==true){
+                Yii::$app->getSession()->setFlash('success','Created success');
+                return $this->redirect(['/site/index']);
+            };
+
             
-                return $this->redirect(['/site/validation']);
-            }
+
         }  
-    
-        return $this->render('eventform', ['model' => $model]);
+        return $this->render('eventform', [
+                'model' => $model,
+            ]);
     }
 }

@@ -1,10 +1,12 @@
 <?php
 namespace frontend\models;
 
+use Yii;
 use yii\base\Model;
+use yii\db\ActiveRecord;
 use common\models\event\Events;
 use common\models\event\EventDetails;
-
+use common\models\User;
 /**
  * Signup form
  */
@@ -21,7 +23,7 @@ class CreateEventForm extends Model
     {
         return [
             ['title', 'required'],
-            ['type', 'string', 'min' => 2, 'max' => 255],
+            ['title', 'string', 'min' => 2, 'max' => 255],
             
             ['endtime', 'required'],
 
@@ -38,14 +40,23 @@ class CreateEventForm extends Model
      */
     public function eventform()
     {
-     
-        $events =new Events(); 
-
+       
+        $events =new Events();
+        $events->type= 1;
         $events->title=$this->title;
-            
-        $events->poll=$this->poll;
-        $events->poll_close_time=$this->poll_close_time;
-        
-        return $events;
+        $events->end_time=strtotime($this->endtime);
+        $events->poll=(int)$this->poll;
+        $events->organizer_id = Yii::$app->user->identity->id;
+        $events->status = 0;
+        $events->created_time = strtotime(date('H:i:s'));     
+     
+        $events->poll_close_time=strtotime($this->poll_close_time);
+        if($events->validate()){
+           $events->save();
+           $valid = true;
+        }else{
+            $valid = false;
+        }
+        return $valid;
     }
 }
