@@ -45,7 +45,6 @@ class CreateEventForm extends Model
         $events =new Events();
         $events->type= 1;
         $events->title=$this->title;
-        $events->end_time=strtotime($this->endtime);
         $events->poll=(int)$this->poll;
         $events->organizer_id = Yii::$app->user->identity->id;
         $events->status = 0;
@@ -58,7 +57,7 @@ class CreateEventForm extends Model
                $inv_person = new EventInvPerson();
                $inv_person['event_id'] = $events['id'];
                $inv_person['uid'] = $uid;
-               $inv_person['status'] = 2;
+               $inv_person['status'] = 1;
                $inv_person->save();
            }
            $data = $events;

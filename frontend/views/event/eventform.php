@@ -37,7 +37,7 @@ $this->title ='Create an Event';
                     ]
                 ])->label('Event Start Time') ?>
 
-                <?php echo $form->field($model, 'endtime')->widget(DateTimePicker::classname(), [
+                <?php echo $form->field($eventdetail, 'event_end_time')->widget(DateTimePicker::classname(), [
                     'options' => ['placeholder' => 'Select end time'],
                     //'readonly'=>true,
                     'pluginOptions' => [

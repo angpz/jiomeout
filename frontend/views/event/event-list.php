@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use frontend\assets\EventAsset;
-
+use yii\helpers\Url;
 EventAsset::register($this);
 $this->title ='Events List';
 
@@ -19,15 +19,17 @@ $this->title ='Events List';
     <div class="row white-background">
         <div class="col-lg-6 col-lg-offset-3">
             <div class="friend-nav">
-                <ul>
-                    <li><?= Html::a('All',['/event/event-list'],['class'=>'active']); ?></li>
-                    <li><?= Html::a('Going','#'); ?></li>
-                    <li><?= Html::a('Maybe','#'); ?></li>
-                    <li><?= Html::a('Decline','#'); ?></li>
-                    <li><?= Html::a('Finished','#'); ?></li>
-                </ul>
+                <?php $form = ActiveForm::begin(); ?>
+                    <ul>
+                        <li><a href=<?=Url::to(['/event/event-list'])?> <?php if(empty($active)){echo "class='active'";} ?>>All</a></li>
+                        <li><a href=<?=Url::to(['/event/event-list','active'=>2])?> <?php if($active == 2){echo "class='active'";} ?>>Going</a></li>
+                        <li><a href=<?=Url::to(['/event/event-list','active'=>3])?> <?php if($active == 3){echo "class='active'";} ?>>Maybe</a></li>
+                        <li><a href=<?=Url::to(['/event/event-list','active'=>4])?> <?php if($active == 4){echo "class='active'";} ?>>Decline</a></li>
+                        <li><a href=<?=Url::to(['/event/event-list','active'=>5])?> <?php if($active == 5){echo "class='active'";} ?>>Finished</a></li>
+                    </ul>
+                <?php ActiveForm::end(); ?>
             </div>
-            <table class='table table-hover'>
+            <table class='table table-bordered'>
 
             <?php if(!empty($created_events)) : ?>
                 <?php foreach ($created_events as $key => $created_event) : ?>
@@ -59,14 +61,16 @@ $this->title ='Events List';
                             </td>
                             <td>Date: <?= date('dM Y, H:i', $event['event']['eventSelection'][0]['event_time']); ?></td>
                             <tr>
-                                <?php if($event['status'] == 2) :?>
+                                <?php if($event['status'] == 1) :?>
                                     <td>
                                         <?= Html::a('Going',['/event/accept-event','eid'=>$event['event_id']],['class'=>'btn btn-success']) ?>
                                         <?= Html::a('Maybe','#',['class'=>'btn btn-warning','data-confirm'=>"Are you sure?"]) ?>
                                         <?= Html::a('Decline','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
                                     </td>
-                                <?php elseif($event['status'] == 3): ?>
+                                <?php elseif($event['status'] == 2): ?>
                                     <td class='success-box'>Accepted</td>
+                                <?php elseif($event['status'] == 3): ?>
+                                    <td>Maybe</td>
                                 <?php elseif($event['status'] == 4): ?>
                                     <td>Declined</td>
                                 <?php endif;?>
