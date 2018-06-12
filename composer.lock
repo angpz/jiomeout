@@ -136,7 +136,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bestiejs/punycode.js.git",
+                "url": "git@github.com:bestiejs/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -1315,7 +1315,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2018-02-07T11:45:58+00:00"
+            "time": "2018-02-07 11:45:58"
         },
         {
             "name": "kartik-v/yii2-widget-timepicker",

@@ -6,6 +6,7 @@ use yii\base\Model;
 use yii\db\ActiveRecord;
 use common\models\event\Events;
 use common\models\event\EventDetails;
+use common\models\event\EventInvPerson;
 use common\models\User;
 /**
  * Signup form
@@ -16,13 +17,14 @@ class CreateEventForm extends Model
     public $endtime;
     public $poll;
     public $poll_close_time;
+    public $inv_friend;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            ['title', 'required'],
+            [['title','inv_friend'], 'required'],
             ['title', 'string', 'min' => 2, 'max' => 255],
             
             ['endtime', 'required'],
@@ -40,7 +42,6 @@ class CreateEventForm extends Model
      */
     public function eventform()
     {
-       
         $events =new Events();
         $events->type= 1;
         $events->title=$this->title;
@@ -53,10 +54,17 @@ class CreateEventForm extends Model
         $events->poll_close_time=strtotime($this->poll_close_time);
         if($events->validate()){
            $events->save();
-           $valid = true;
+           foreach ($this->inv_friend as $k => $uid) {
+               $inv_person = new EventInvPerson();
+               $inv_person['event_id'] = $events['id'];
+               $inv_person['uid'] = $uid;
+               $inv_person['status'] = 2;
+               $inv_person->save();
+           }
+           $data = $events;
         }else{
-            $valid = false;
+            $data = false;
         }
-        return $valid;
+        return $data;
     }
 }

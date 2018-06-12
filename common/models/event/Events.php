@@ -67,4 +67,9 @@ class Events extends \yii\db\ActiveRecord
     {
         return $this->hasOne(EventType::className(), ['id' => 'type']);
     }
+
+    public function getEventSelection()
+    {
+        return $this->hasMany(EventDetails::className(), ['event_id' => 'id']);
+    }
 }

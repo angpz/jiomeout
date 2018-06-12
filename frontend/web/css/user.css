@@ -24,7 +24,7 @@
     margin: 5px;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
 }
 
 .friend-nav li {
@@ -35,14 +35,19 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 10px;
     text-decoration: none;
 }
 
 .friend-nav li a:hover:not(.active) {
-    background-color: #111;
+    background-color: #3e72af;
 }
 
 .friend-nav .active {
-    background-color: #6696ff;
+    background-color: #008080;
+}
+
+.success-box{
+    background-color: #56aa54;
+    color:white;
 }

@@ -3,7 +3,7 @@
 namespace common\models\event;
 
 use Yii;
-
+use common\models\user\User;
 /**
  * This is the model class for table "event_inv_person".
  *
@@ -44,5 +44,15 @@ class EventInvPerson extends \yii\db\ActiveRecord
             'status' => 'Status',
             'event_detail_id' => 'Event Detail ID',
         ];
+    }
+
+    public function getEvent()
+    {
+        return $this->hasOne(Events::className(), ['id' => 'event_id']);
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['uid' => 'id']);
     }
 }

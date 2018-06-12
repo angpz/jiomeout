@@ -31,7 +31,7 @@ class EventDetails extends \yii\db\ActiveRecord
     {
         return [
             [['event_id', 'event_name', 'event_location', 'event_time'], 'required'],
-            [['event_id', 'event_time', 'poll'], 'integer'],
+            [['event_id', 'poll'], 'integer'],
             [['event_name', 'event_location'], 'string'],
         ];
     }
