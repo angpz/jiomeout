@@ -84,6 +84,7 @@ class CommonController extends Controller
         }
         
         $menuItems[] = ['label' => 'Sign In', 'url' =>  Url::to(['/site/login'])];
+        $menuItems[] = ['label' => 'Sign Up', 'url' =>  Url::to(['/site/signup'])];
         return $menuItems;
     }
 

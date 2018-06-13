@@ -47,12 +47,17 @@ class CreateEventForm extends Model
         $events->title=$this->title;
         $events->poll=(int)$this->poll;
         $events->organizer_id = Yii::$app->user->identity->id;
-        $events->status = 0;
+        $events->status = 1;
         $events->created_time = strtotime(date('H:i:s'));     
-     
-        $events->poll_close_time=strtotime($this->poll_close_time);
+        
+        if (!empty($this->poll_close_time)) {
+            $events->poll_close_time=strtotime($this->poll_close_time);
+        }
+        
         if($events->validate()){
-           $events->save();
+            $events->save();
+            $this->inv_friend[] = Yii::$app->user->identity->id;
+            
            foreach ($this->inv_friend as $k => $uid) {
                $inv_person = new EventInvPerson();
                $inv_person['event_id'] = $events['id'];

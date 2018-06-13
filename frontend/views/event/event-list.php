@@ -25,7 +25,7 @@ $this->title ='Events List';
                         <li><a href=<?=Url::to(['/event/event-list','active'=>2])?> <?php if($active == 2){echo "class='active'";} ?>>Going</a></li>
                         <li><a href=<?=Url::to(['/event/event-list','active'=>3])?> <?php if($active == 3){echo "class='active'";} ?>>Maybe</a></li>
                         <li><a href=<?=Url::to(['/event/event-list','active'=>4])?> <?php if($active == 4){echo "class='active'";} ?>>Decline</a></li>
-                        <li><a href=<?=Url::to(['/event/event-list','active'=>5])?> <?php if($active == 5){echo "class='active'";} ?>>Finished</a></li>
+                        <li><a href='#'>Finished</a></li>
                     </ul>
                 <?php ActiveForm::end(); ?>
             </div>
@@ -63,16 +63,16 @@ $this->title ='Events List';
                             <tr>
                                 <?php if($event['status'] == 1) :?>
                                     <td>
-                                        <?= Html::a('Going',['/event/accept-event','eid'=>$event['event_id']],['class'=>'btn btn-success']) ?>
-                                        <?= Html::a('Maybe','#',['class'=>'btn btn-warning','data-confirm'=>"Are you sure?"]) ?>
-                                        <?= Html::a('Decline','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
+                                        <?= Html::a('Going',['/event/confirm-event','eid'=>$event['event_id'],'status'=>2],['class'=>'btn btn-success']) ?>
+                                        <?= Html::a('Maybe',['/event/confirm-event','eid'=>$event['event_id'],'status'=>3],['class'=>'btn btn-warning','data-confirm'=>"Maybe Going?"]) ?>
+                                        <?= Html::a('Decline',['/event/confirm-event','eid'=>$event['event_id'],'status'=>4],['class'=>'btn btn-danger','data-confirm'=>"Declining to going?"]) ?>
                                     </td>
                                 <?php elseif($event['status'] == 2): ?>
-                                    <td class='success-box'>Accepted</td>
+                                    <td class='success-box'>Going</td>
                                 <?php elseif($event['status'] == 3): ?>
-                                    <td>Maybe</td>
+                                    <td class='warning-box'>Maybe</td>
                                 <?php elseif($event['status'] == 4): ?>
-                                    <td>Declined</td>
+                                    <td class='danger-box'>Declined</td>
                                 <?php endif;?>
                             </tr>
                             
