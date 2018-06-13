@@ -83,7 +83,31 @@ http://www.templatemo.com/tm-506-tinker
 
 <?php $this->endBody() ?>   
 
+<script>
 
+$(document).ready(function() {
+   
+    $('.navbar-toggle').on('click', function (event) {
+        event.preventDefault();
+        $(this).toggleClass("open");
+    });
+
+    var prevScrollpos = window.pageYOffset;
+    var mainNav = $('.navbar-toggle');
+    var secNav = $('.navbar-collapse');
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (mainNav.hasClass("open")&&(prevScrollpos != currentScrollPos)) {
+            secNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+
+      }
+      prevScrollpos = currentScrollPos;
+    }
+});
+
+
+</script>
 
 </body>
 </html>
