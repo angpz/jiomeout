@@ -19,6 +19,15 @@ class AppAsset extends AssetBundle
         'css/prettyPhoto.css',
     ];
     public $js = [
+        'js/bootstrap.js',
+        'js/SmoothScroll.js',
+        'js/jquery.prettyPhoto.js',
+        'js/jquery.isotope.js',
+        'js/jquery.parallax.js', 
+        'js/jqBootstrapValidation.js',
+        'js/contact_me.js',
+        'js/main.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
