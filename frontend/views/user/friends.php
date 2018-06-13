@@ -11,9 +11,9 @@ use frontend\assets\UserAsset;
 UserAsset::register($this);
 
 ?>
-<div class="container white-background">
+<div class="container">
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-6 col-lg-offset-3">
             <div class="friend-nav">
                 <ul>
                     <li><?= Html::a('Friend List',['/user/friends'],['class'=>'active']); ?></li>
