@@ -49,7 +49,7 @@ class EventController extends Controller
             $events = $events->andWhere(['=','event_inv_person.status',$active]);
         }
 
-        $events = $events->andWhere(['!=','events.status',1])->all();
+        $events = $events->andWhere(['=','events.status',2])->all();
         $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
 
         return $this->render('event-list',['events'=>$events,'created_events'=>$created_events,'active'=>$active]);

@@ -33,21 +33,29 @@ $this->title ='Events List';
 
             <?php if(!empty($created_events)) : ?>
                 <?php foreach ($created_events as $key => $created_event) : ?>
-                    <tr>
-                        <td rowspan="2">
-                            Title: <b><?= $created_event['title']; ?></b><br>
-                            Detail: <?= $created_event['eventSelection'][0]['event_name']?><br>
-                            Location: <?= $created_event['eventSelection'][0]['event_location'] ?>
-                        </td>
-                        <td>Date: <?= date('Y-m-d H:i:s', $created_event['eventSelection'][0]['event_time']) ?></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <?= Html::a('Edit','#',['class'=>'btn btn-warning']) ?>
-                            <?= Html::a('Cancel','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
-                                            
-                        </td>
-                    </tr>
+                        <tr>
+                            <td rowspan="2">
+                                Title: <b><?= $created_event['title']; ?></b><br>
+
+                                <?php if(!empty($created_event['eventSelection'])): ?>
+                                    Detail: <?= $created_event['eventSelection'][0]['event_name']?>
+                                    <br>
+                                    Location: <?= $created_event['eventSelection'][0]['event_location'] ?>
+                                <?php endif; ?>
+                            </td>
+
+                            <td>
+                                <?php if(!empty($created_event['eventSelection'])): ?>
+                                    Date: <?= date('Y-m-d H:i:s', $created_event['eventSelection'][0]['event_time']) ?>
+                                <?php else: echo 'Pending'; endif; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?= Html::a('Edit','#',['class'=>'btn btn-warning']) ?>
+                                <?= Html::a('Cancel','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
+                            </td>
+                        </tr>
                 <?php endforeach;?>
             <?php endif;?>
 

@@ -79,6 +79,18 @@ http://www.templatemo.com/tm-506-tinker
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
+
+    <nav class="bottom-right-container"  > 
+    
+    <a href="#" class="bottom-right-button" tooltip="Google+"></a>
+    
+    <a href="#" class="bottom-right-button" tooltip="Twitter"></a>
+    
+    <a  class="bottom-right-button" tooltip="Add"></a>
+
+
+  </nav>
+
 </footer>
 
 <?php $this->endBody() ?>   

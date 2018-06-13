@@ -16,6 +16,7 @@ use Yii;
  */
 class EventDetails extends \yii\db\ActiveRecord
 {
+    public $poll_event_time;
     /**
      * {@inheritdoc}
      */

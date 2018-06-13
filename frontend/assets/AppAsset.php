@@ -17,8 +17,10 @@ class AppAsset extends AssetBundle
         'css/bootstrap.css',
         'css/style.css',
         'css/prettyPhoto.css',
+        'css/bottom-right-button.css',
     ];
     public $js = [
+        'js/bottom-right-button.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
