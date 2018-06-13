@@ -12,7 +12,6 @@ EventAsset::register($this);
 $this->title ='Events List';
 
 ?>
-<div class="container">
     <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
         <h1><?= Html::encode($this->title) ?></h1><?= Html::a('Create Event',['/event/eventform'],['class'=>'btn btn-success']);?>
     </div>
@@ -83,4 +82,4 @@ $this->title ='Events List';
             </table>
         </div>
     </div>
-</div>
+

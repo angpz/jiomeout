@@ -11,7 +11,6 @@ use frontend\assets\UserAsset;
 UserAsset::register($this);
 
 ?>
-<div class="container">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             <div class="friend-nav">
@@ -50,4 +49,4 @@ UserAsset::register($this);
             </table>
         </div>
     </div>
-</div>
+
