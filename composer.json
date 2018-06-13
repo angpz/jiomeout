@@ -21,7 +21,8 @@
         "kartik-v/yii2-widget-switchinput": "@dev",
         "fxp/composer-asset-plugin": "~1.4",
         "2amigos/yii2-date-time-picker-widget": "*",
-        "kartik-v/yii2-widgets": "*"
+        "kartik-v/yii2-widgets": "*",
+        "philippfrenzel/yii2fullcalendar": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

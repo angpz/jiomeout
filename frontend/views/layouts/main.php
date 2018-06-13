@@ -95,19 +95,31 @@ http://www.templatemo.com/tm-506-tinker
 
 <?php $this->endBody() ?>   
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script type="text/javascript" src="js/bootstrap.js"></script> 
-<script type="text/javascript" src="js/SmoothScroll.js"></script> 
-<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
-<script type="text/javascript" src="js/jquery.isotope.js"></script> 
-<script type="text/javascript" src="js/jquery.parallax.js"></script> 
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
+<script>
 
-<!-- Javascripts
-    ================================================== --> 
-<script type="text/javascript" src="js/main.js"></script>
+$(document).ready(function() {
+   
+    $('.navbar-toggle').on('click', function (event) {
+        event.preventDefault();
+        $(this).toggleClass("open");
+    });
+
+    var prevScrollpos = window.pageYOffset;
+    var mainNav = $('.navbar-toggle');
+    var secNav = $('.navbar-collapse');
+    window.onscroll = function() {
+    var currentScrollPos = window.pageYOffset;
+      if (mainNav.hasClass("open")&&(prevScrollpos != currentScrollPos)) {
+            secNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+
+      }
+      prevScrollpos = currentScrollPos;
+    }
+});
+
+
+</script>
 
 </body>
 </html>

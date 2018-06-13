@@ -76,4 +76,13 @@ class EventController extends Controller
         Yii::$app->session->setFlash('success','Your are accepted this event!');
         return $this->redirect(['event-list']);
     }
+
+    public function actionCalendar()
+    {
+      
+
+        return $this->render('calendar');
+    }
+
+   
 }
