@@ -32,7 +32,7 @@ http://www.templatemo.com/tm-506-tinker
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 
         <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
@@ -48,7 +48,7 @@ http://www.templatemo.com/tm-506-tinker
         'brandLabel' =>' <em>Jio</em>meout',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-inverse',
+            'class' => 'navbar navbar-fixed-top navbar-custom',
             'role' => 'navigation',
         ],
     ]);
@@ -59,7 +59,7 @@ http://www.templatemo.com/tm-506-tinker
 
         'items' => $menuItems,
 
-        'options' => ['class' => 'nav navbar-nav', 'id' => 'main-nav'],
+        'options' => ['class' => 'nav navbar-nav navbar-right', 'id' => 'main-nav'],
 
     ]);
 
@@ -83,42 +83,19 @@ http://www.templatemo.com/tm-506-tinker
 
 <?php $this->endBody() ?>   
 
-   <!---phone nav js --->
-    <script type="text/javascript">
-    $(document).ready(function() {
-        // mobile nav toggle
-        $('.navbar-toggle').on('click', function (event) {
-            event.preventDefault();
-            $(this).toggleClass("open");
-        });
-        // navigation click actions 
-        $('.scroll-link').on('click', function(event){
-            event.preventDefault();
-            var sectionID = $(this).attr("data-id");
-            scrollToID('#' + sectionID, 750);
-        });
-     
-    });
-    // scroll function
-    function scrollToID(id, speed){
-        var offSet = 50;
-        var targetOffset = $(id).offset().top - offSet;
-        //phone view nav icon
-        var mainNav = $('.navbar-toggle');
-        //Class items mainNav
-        var secNav = $('.navbar-collapse');
-        $('html,body').animate({scrollTop:targetOffset}, speed);
-        if (mainNav.hasClass("open")) {
-            secNav.css("height", "1px").removeClass("in").addClass("collapse");
-            mainNav.removeClass("open");
-        }
-    }
-    if (typeof console === "undefined") {
-        console = {
-            log: function() { }
-        };
-    }
-    </script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script type="text/javascript" src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/SmoothScroll.js"></script> 
+<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script> 
+<script type="text/javascript" src="js/jquery.isotope.js"></script> 
+<script type="text/javascript" src="js/jquery.parallax.js"></script> 
+<script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
+<script type="text/javascript" src="js/contact_me.js"></script> 
+
+<!-- Javascripts
+    ================================================== --> 
+<script type="text/javascript" src="js/main.js"></script>
 
 </body>
 </html>

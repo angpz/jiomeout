@@ -4,310 +4,374 @@
 
 $this->title = 'Jio Me out';
 ?>
-
-    <div class="parallax-content baner-content" id="home">
-        <div class="container">
-            <div class="text-content">
-                <h2>Be a part of</h2>
-                <p>Phasellus aliquam finibus est, id tincidunt mauris fermentum a. In elementum diam et dui congue, ultrices bibendum mi lacinia. Aliquam lobortis dapibus nunc, nec tempus odio posuere quis. </p>
-                <div class="primary-white-button">
-                    <a href="#" class="scroll-link" data-id="about">Let's Start</a>
-                </div>
-            </div>
-        </div>
+<!-- Header -->
+<div id="intro">
+  <div class="intro-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h1>We are <span class="brand-heading">Modus</span></h1>
+          <p class="intro-text">A full-service digital agency that loves what we do</p>
+          <a href="#about" class="btn btn-default page-scroll">Learn More</a> </div>
+      </div>
     </div>
-
-
-    <section id="about" class="page-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="img/service_icon_01.png" alt="">
-                        </div>
-                        <h4>Smart Alerts Updated</h4>
-                        <div class="line-dec"></div>
-                        <p>Integer hendrerit vehicula mauris, sed pellentesque sem facilisis at. Aliquam vel arcu metus. Nam sem lectus, mattis non tellus et, tincidunt condimentum eros.</p>
-                        <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="img/service_icon_02.png" alt="">
-                        </div>
-                        <h4>Lovely HTML5 Layout</h4>
-                        <div class="line-dec"></div>
-                        <p>Integer hendrerit vehicula mauris, sed pellentesque sem facilisis at. Aliquam vel arcu metus. Nam sem lectus, mattis non tellus et, tincidunt condimentum eros.</p>
-                        <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="img/service_icon_03.png" alt="">
-                        </div>
-                        <h4>Always CSS Ready</h4>
-                        <div class="line-dec"></div>
-                        <p>Integer hendrerit vehicula mauris, sed pellentesque sem facilisis at. Aliquam vel arcu metus. Nam sem lectus, mattis non tellus et, tincidunt condimentum eros.</p>
-                        <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <div class="service-item">
-                        <div class="icon">
-                            <img src="img/service_icon_04.png" alt="">
-                        </div>
-                        <h4>One-Click Install</h4>
-                        <div class="line-dec"></div>
-                        <p>Integer hendrerit vehicula mauris, sed pellentesque sem facilisis at. Aliquam vel arcu metus. Nam sem lectus, mattis non tellus et, tincidunt condimentum eros.</p>
-                        <div class="primary-blue-button">
-                            <a href="#" class="scroll-link" data-id="portfolio">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <div class="content-wrapper">
-            <div class="inner-container container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <div class="section-heading">
-                            <h4>Our Gallery</h4>
-                            <div class="line-dec"></div>
-                            <p>Chia hot chicken la croix ugh dreamcatcher man bun squid vaporware kinfolk.</p>
-                            <div class="filter-categories">
-                                <ul class="project-filter">
-                                    <li class="filter" data-filter="all"><span>Show All</span></li>
-                                    <li class="filter" data-filter="branding"><span>Branding</span></li>
-                                    <li class="filter" data-filter="graphic"><span>Graphic</span></li>
-                                    <li class="filter" data-filter="nature"><span>Nature</span></li>
-                                    <li class="filter" data-filter="animation"><span>Animation</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="projects-holder-3">
-                            <div class="projects-holder">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 project-item mix nature">
-                                      <div class="thumb">
-                                            <div class="image">
-                                                <a href="img/portfolio_big_item_01.jpg" data-lightbox="image-1"><img src="img/portfolio_item_01.jpg"></a>
-                                            </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 project-item mix animation">
-                                      <div class="thumb">
-                                        <div class="image">
-                                                <a href="img/portfolio_big_item_02.jpg" data-lightbox="image-1"><img src="img/portfolio_item_02.jpg"></a>
-                                            </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 project-item mix branding">
-                                      <div class="thumb">
-                                            <div class="image">
-                                                <a href="img/portfolio_big_item_03.jpg" data-lightbox="image-1"><img src="img/portfolio_item_03.jpg"></a>
-                                            </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 project-item mix graphic nature">
-                                        <div class="thumb">
-                                            <div class="image">
-                                                <a href="img/portfolio_big_item_04.jpg" data-lightbox="image-1"><img src="img/portfolio_item_04.jpg"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 project-item mix branding">
-                                      <div class="thumb">
-                                            <div class="image">
-                                                <a href="img/portfolio_big_item_05.jpg" data-lightbox="image-1"><img src="img/portfolio_item_05.jpg"></a>
-                                            </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 project-item mix graphic animation">
-                                        <div class="thumb">
-                                            <div class="image">
-                                                <a href="img/portfolio_big_item_06.jpg" data-lightbox="image-1"><img src="img/portfolio_item_06.jpg"></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </section>
-
-
-    <section id="testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div id="owl-testimonials" class="owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <p>“ Vivamus cursus at est in gravida. Phasellus semper est quis tellus viverra consectetur eget sed leo. Quisque consectetur tempor cursus. Nullam ut mauris fermentum, pretium risus id, tincidunt ante. ”</p>
-                                <h4>George Rich</h4>
-                                <span>Web Designer</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <p>“ Phasellus orci nisi, varius sed lacinia et, pulvinar quis est. Curabitur a tincidunt tortor. Cras rhoncus sodales massa sagittis malesuada. Nulla maximus vitae lorem vel elementum. ”</p>
-                                <h4>John Henry</h4>
-                                <span>New Manager</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <p>“ Phasellus aliquam finibus est, id tincidunt mauris fermentum a. In elementum diam et dui congue, ultrices bibendum mi lacinia. Aliquam lobortis dapibus nunc, nec tempus odio posuere quis. ”</p>
-                                <h4>Danny Cute</h4>
-                                <span>CEO Founder</span>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <p>“ Quisque ut ligula venenatis, euismod risus vel, consequat lacus. In ut purus id felis euismod cursus. Praesent in pulvinar arcu, vitae hendrerit lectus. Quisque a urna magna. ”</p>
-                                <h4>Richard Beal</h4>
-                                <span>CSS Developer</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="tabs-content" id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="wrapper">
-                    <div class="col-md-4">
-                        <div class="section-heading">
-                            <h4>Our Blog Posts</h4>
-                            <div class="line-dec"></div>
-                            <p>Chia hot chicken la croix ugh dreamcatcher man bun squid vaporware kinfolk.</p>
-                            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
-                                <li><a href="#tab1" class="active">Lorem ipsum dolor sit</a></li>
-                                <li><a href="#tab2">Quisque ultricies maximus</a></li>
-                                <li><a href="#tab3">Sed vel elit et lorem</a></li>
-                                <li><a href="#tab4">Vivamus purus neque</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <section id="first-tab-group" class="tabgroup">
-                            <div id="tab1">
-                                <img src="img/blog_item_01.jpg" alt="">
-                                <div class="text-content">
-                                    <h4>Lorem ipsum dolor sit amet</h4>
-                                    <span><a href="#">Digital Marketing</a> / <a href="#">John</a> / <a href="#">22 September 2017</a></span>
-                                    <p>Sed sed elementum diam. Nunc vehicula leo et ante dapibus tincidunt. Praesent fringilla mauris gravida enim laoreet, eu cursus erat dignissim. Praesent lacinia, nisi in suscipit commodo, risus elit viverra neque, ut pretium eros turpis vel enim. Maecenas vitae lacus purus.</p>
-                                </div>
-                            </div>
-                            <div id="tab2">
-                                <img src="img/blog_item_02.jpg" alt="">
-                                <div class="text-content">
-                                    <h4>Quisque ultricies maximus</h4>
-                                    <span><a href="#">Branding</a> / <a href="#">David</a> / <a href="#">14 September 2017</a></span>
-                                    <p> Quisque eget congue orci. Integer et eros diam. Curabitur aliquam nisi ornare turpis tristique tincidunt ut ut orci. Phasellus orci nisi, varius sed lacinia et, pulvinar quis est. Curabitur a tincidunt tortor. Cras rhoncus sodales massa sagittis malesuada.</p>
-                                </div>
-                            </div>
-                            <div id="tab3">
-                                <img src="img/blog_item_03.jpg" alt="">
-                                <div class="text-content">
-                                    <h4>Sed vel elit et lorem</h4>
-                                    <span><a href="#">Web Design</a> / <a href="#">Jacky</a> / <a href="#">25 August 2017</a></span>
-                                    <p>Cras sodales, magna non ultrices pellentesque, ligula dui viverra nunc, vitae scelerisque arcu tortor nec nibh. Proin tempor vel nisi et sagittis. Morbi ut sagittis orci, a pretium diam. Nullam sed bibendum turpis. Fusce eget dapibus lectus. Vestibulum ac malesuada lacus, eu vulputate sapien. Sed vel elit et lorem cursus dignissim sed sit amet arcu.</p>
-                                </div>
-                            </div>
-                            <div id="tab4">
-                                <img src="img/blog_item_04.jpg" alt="">
-                                <div class="text-content">
-                                    <h4>Vivamus purus neque</h4>
-                                    <span><a href="#">E-Commerce</a> / <a href="#">John</a> / <a href="#">12 August 2017</a></span>
-                                    <p>Aliquam erat volutpat. Nulla at nunc nec ante rutrum congue id in diam. Nulla at lectus non turpis placerat volutpat lacinia ut mi. Quisque ultricies maximus justo a blandit. Donec sit amet commodo arcu. Sed sit amet iaculis mi, vel fermentum nisi. Morbi dui enim, vestibulum non accumsan ac, tempor non nisl.</p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </div>
-        </div>
+  </div>
+</div>
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="section-title text-center center">
+      <h2>About us</h2>
+      <hr>
     </div>
-
-    <div id="contact-us">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-heading">
-                        <h4>Contact Us</h4>
-                        <div class="line-dec"></div>
-                        <p>Donec sit amet commodo arcu. Sed sit amet iaculis mi, vel fermentum nisi. Morbi dui enim, vestibulum non accumsan ac, tempor non nisl.</p>
-                        <div class="pop-button">
-                            <h4>Send us a message</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <div class="pop">
-                        <span>✖</span>
-                        <form id="contact" action="#" method="post">
-                            <div class="row">
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
-                                  </fieldset>
-                                </div>
-                                <div class="col-md-12">
-                                  <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Message</button>
-                                  </fieldset>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="col-md-4"><img src="img/about.jpg" class="img-responsive"></div>
+      <div class="col-md-4">
+        <div class="about-text">
+          <h4>Who We Are</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam commodo nibh.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum. </p>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="about-text">
+          <h4>What We Do</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam. Sed commodo nibh ante facilisis bibendum dolor feugiat at. Duis sed dapibus leo nec ornare diam.</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetur adipiscing commodo</li>
+            <li>Duis sed dapibus leo sed dapibus</li>
+            <li>Sed commodo nibh ante bibendum</li>
+          </ul>
+        </div>
+      </div>
     </div>
-
-    <div id="map">
-        <!-- How to change your own map point
-            1. Go to Google Maps
-            2. Click on your location point
-            3. Click "Share" and choose "Embed map" tab
-            4. Copy only URL and paste it within the src="" field below
-        -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7895.485196115994!2d103.85995441789784!3d1.2880401763270322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7fb4e58ad9cd826e!2sSingapore+Flyer!5e0!3m2!1sen!2sth!4v1505825620371" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </div>
+</div>
+<!-- Services Section -->
+<div id="services" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Our Services</h2>
+      <hr>
     </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-desktop"></i>
+          <h3>Web Design</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-cogs"></i>
+          <h3>Web Development</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"> <i class="fa fa-tablet"></i>
+          <h3>App Design</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-html5"></i>
+          <h3>PSD to HTML5</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-wordpress"></i>
+          <h3>WordPress</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-bullhorn"></i>
+          <h3>Marketing</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-rocket"></i>
+          <h3>Branding</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="service"><i class="fa fa-leaf"></i>
+          <h3>Print Design</h3>
+          <p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Portfolio Section -->
+<div id="works">
+  <div class="container"> <!-- Container -->
+    <div class="section-title text-center center">
+      <h2>Our Portfolio</h2>
+      <hr>
+      <div class="clearfix"></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+    </div>
+    <div class="categories">
+      <ul class="cat">
+        <li>
+          <ol class="type col-lg-12">
+            <li><a href="#" data-filter="*" class="active">All</a></li>
+            <li><a href="#" data-filter=".lorem">Web Design</a></li>
+            <li><a href="#" data-filter=".consectetur">Web Development</a></li>
+            <li><a href="#" data-filter=".dapibus">Branding</a></li>
+          </ol>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/01.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Design</p>
+              </div>
+              <img src="img/portfolio/01.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/02.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Development</p>
+              </div>
+              <img src="img/portfolio/02.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/03.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Design</p>
+              </div>
+              <img src="img/portfolio/03.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/04.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Design</p>
+              </div>
+              <img src="img/portfolio/04.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 consectetur">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/05.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Development</p>
+              </div>
+              <img src="img/portfolio/05.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/06.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Branding</p>
+              </div>
+              <img src="img/portfolio/06.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 dapibus consectetur">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/07.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Development, Branding</p>
+              </div>
+              <img src="img/portfolio/07.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 lorem">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="img/portfolio/08.jpg" title="Project description" rel="prettyPhoto">
+              <div class="hover-text">
+                <h4>Project Title</h4>
+                <p>Web Design</p>
+              </div>
+              <img src="img/portfolio/08.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team Section -->
+<div id="team" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Meet the team</h2>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+    </div>
+    <div id="row">
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="img/team/01.jpg" alt="..." class="img-thumbnail team-img">
+          <div class="caption">
+            <h3>John Doe</h3>
+            <p>Founder / CEO</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="img/team/02.jpg" alt="..." class="img-thumbnail team-img">
+          <div class="caption">
+            <h3>Mike Doe</h3>
+            <p>Web Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="img/team/03.jpg" alt="..." class="img-thumbnail team-img">
+          <div class="caption">
+            <h3>Jane Doe</h3>
+            <p>Creative Director</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-3 col-sm-6">
+        <div class="thumbnail"> <img src="img/team/04.jpg" alt="..." class="img-thumbnail team-img">
+          <div class="caption">
+            <h3>Larry Show</h3>
+            <p>Project Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Testimonials Section -->
+<div id="testimonials" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>What our clients say</h2>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row testimonials">
+          <div class="col-sm-4">
+            <blockquote><i class="fa fa-quote-left"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
+              <div class="clients-name">
+                <p><strong>John Doe</strong><br>
+                  <em>CEO, Company Inc.</em></p>
+              </div>
+            </blockquote>
+          </div>
+          <div class="col-sm-4">
+            <blockquote><i class="fa fa-quote-left"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
+              <div class="clients-name">
+                <p><strong>Jane Doe</strong><br>
+                  <em>CEO, Company Inc.</em></p>
+              </div>
+            </blockquote>
+          </div>
+          <div class="col-sm-4">
+            <blockquote><i class="fa fa-quote-left"></i>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
+              <div class="clients-name">
+                <p><strong>Chris Smith</strong><br>
+                  <em>CEO, Company Inc.</em></p>
+              </div>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<!-- Contact Section -->
+<div id="contact" class="text-center">
+  <div class="container">
+    <div class="section-title center">
+      <h2>Contact us</h2>
+      <hr>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-map-marker fa-2x"></i>
+          <p>4321 California St,<br>
+            San Francisco, CA 12345</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-envelope-o fa-2x"></i>
+          <p>info@company.com</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="contact-item"> <i class="fa fa-phone fa-2x"></i>
+          <p> +1 123 456 1234<br>
+            +1 321 456 1234</p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Leave us a message</h3>
+      <form name="sentMessage" id="contactForm" novalidate>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required></textarea>
+          <p class="help-block text-danger"></p>
+        </div>
+        <div id="success"></div>
+        <button type="submit" class="btn btn-default">Send Message</button>
+      </form>
+      <div class="social">
+        <h3>Follow us</h3>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+          <li><a href="#"><i class="fa fa-github"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
     
 
  

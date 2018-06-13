@@ -14,7 +14,7 @@ use frontend\assets\EventAsset;
 EventAsset::register($this);
 $this->title ='Create an Event';
 ?>
-<div class="site-event">
+
      <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
     <h1><?= Html::encode($this->title) ?></h1>
    
@@ -71,9 +71,9 @@ $this->title ='Create an Event';
 
                 <div class="form-group">
                     <?= Html::submitButton('Create', ['class' => 'raised-btn main-btn form-control', 'name' => 'signup-button']) ?> <br>
-                    <?= Html::a('Back',['/event/event-list'] ,['class' => 'form-control btn-primary']) ?> <br><br>
+                    <?= Html::a('Back',['/event/event-list'] ,['class' => 'btn form-control  btn-primary']) ?> <br><br>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>
     </div>
-</div>
+
