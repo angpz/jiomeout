@@ -18,7 +18,7 @@ $this->title ='Create an Event';
      <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
     <h1><?= Html::encode($this->title) ?></h1>
    
-    <p>Please fill out the following fields to signup</p>
+    <p>Create Your Own Event and JIO Your Friends!</p>
   </div>
     <div class="container">
    <div class="col-lg-6 col-lg-offset-3">
@@ -26,29 +26,7 @@ $this->title ='Create an Event';
 
                 <?= $form->field($model, 'title')->textInput(['autofocus' => true])->label('Title') ?>
 
-                <?= $form->field($eventdetail, 'event_name')->textInput()->label('Event Name') ?>
-                <?= $form->field($eventdetail, 'event_location')->textInput()->label('Event Location') ?>
-                <?= $form->field($eventdetail, 'event_time')->widget(DateTimePicker::classname(), [
-                    'options' => ['placeholder' => 'Select end time'],
-                    'pluginOptions' => [
-                        'format' => 'yyyy-mm-dd hh:ii:ss',
-                        'autoclose'=>true,
-                        'startDate' => date('Y-m-d H:ii:ss'), 
-                    ]
-                ])->label('Event Start Time') ?>
-
-                <?php echo $form->field($eventdetail, 'event_end_time')->widget(DateTimePicker::classname(), [
-                    'options' => ['placeholder' => 'Select end time'],
-                    //'readonly'=>true,
-                    'pluginOptions' => [
-                        'format' => 'yyyy-mm-dd hh:ii:ss',
-                        'autoclose'=>true,
-                        'startDate' => date('Y-m-d H:ii:ss'), 
-
-                    ]
-                ]); ?>
-
-                <?= $form->field($model, 'inv_friend')->checkboxList($userlist); ?>
+                <div class='white-background'><?= $form->field($model, 'inv_friend')->checkboxList($userlist); ?></div>
 
                 <div class="col-lg-3">
                     <div class="form-group">

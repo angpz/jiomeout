@@ -35,7 +35,7 @@ class Events extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'organizer_id', 'title', 'status', 'created_time', 'poll_close_time'], 'required'],
+            [['type', 'organizer_id', 'title', 'status', 'created_time'], 'required'],
             [['type', 'organizer_id', 'status', 'created_time', 'poll', 'poll_close_time'], 'integer'],
             [['title'], 'string'],
             [['type'], 'exist', 'skipOnError' => true, 'targetClass' => EventType::className(), 'targetAttribute' => ['type' => 'id']],
