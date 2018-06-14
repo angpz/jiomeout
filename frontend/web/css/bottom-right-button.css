@@ -33,7 +33,7 @@
 }
 
 .bottom-right-container {
-  bottom: 0;
+  bottom: 5%;
   position: fixed;
   margin: 1em;
   right: 10px;
