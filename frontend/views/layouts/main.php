@@ -82,7 +82,7 @@ http://www.templatemo.com/tm-506-tinker
 
     <nav class="bottom-right-container"  > 
     
-    <a href=<?= Url::to(['/event/eventform','type'=>1]);?> class="bottom-right-button" tooltip="Event">
+     <a href=<?= Url::to(['/event/eventform','type'=>1]);?> class="bottom-right-button" tooltip="Event">
         <div class="fba-icon icon-calendar-position"><i class="fa fa-calendar"></i></div>
     </a>
     
@@ -123,8 +123,6 @@ $(document).ready(function() {
       prevScrollpos = currentScrollPos;
     }
 });
-
-
 </script>
 
 </body>
