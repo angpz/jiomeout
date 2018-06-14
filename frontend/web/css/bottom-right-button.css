@@ -37,6 +37,7 @@
   position: fixed;
   margin: 1em;
   right: 10px;
+  z-index:1000;
 }
 
 .bottom-right-button {

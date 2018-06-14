@@ -4,6 +4,10 @@ use yii\web\JsExpression;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use frontend\assets\CalendarAsset;
+
+
+CalendarAsset::register($this);
 /* @var $this yii\web\View */
 ?>
 	<?php Modal::begin([
@@ -23,9 +27,7 @@ function(calEvent, jsEvent, view) {
 }
 EOF; -->
 
-
-<div class="container">
-	<div style="padding:0 100px;">
+	<div class="calender-box">
 		<?= \yii2fullcalendar\yii2fullcalendar::widget(array(
 				'options'=>[
 					
@@ -33,7 +35,6 @@ EOF; -->
 				'clientOptions' => [
 				    'header' => [
 				        'left'=>'prev,next today',
-				        'center'=>'prevYear,nextYear title',
 				        'right'=>'month,agendaWeek,agendaDay',
 				    ],
 				    'selectable' => true,
@@ -50,4 +51,3 @@ EOF; -->
 			  ));
 	  	?>
   	</div>
-</div>
