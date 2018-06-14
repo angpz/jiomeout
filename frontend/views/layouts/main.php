@@ -82,17 +82,11 @@ http://www.templatemo.com/tm-506-tinker
 
     <nav class="bottom-right-container"  > 
     
-    <a href=<?= Url::to(['/event/eventform','type'=>1]);?> class="bottom-right-button" tooltip="Event">
-        <div class="fba-icon icon-calendar-position"><i class="fa fa-calendar"></i></div>
-    </a>
+    <a href="#" class="bottom-right-button" tooltip="Google+"></a>
     
-    <a href=<?= Url::to(['/event/eventform','type'=>2]);?> class="bottom-right-button" tooltip="Movie">
-        <div class="fba-icon icon-film-position"><i class="fa fa-film"></i></div>
-    </a>
+    <a href="#" class="bottom-right-button" tooltip="Twitter"></a>
     
-    <a  class="bottom-right-button" tooltip="Add">
-        <div class="fba-icon icon-plus-position"><i class="fa fa-plus"></i></div>
-    </a>
+    <a  class="bottom-right-button" tooltip="Add"></a>
 
 
   </nav>
@@ -123,8 +117,6 @@ $(document).ready(function() {
       prevScrollpos = currentScrollPos;
     }
 });
-
-
 </script>
 
 </body>
