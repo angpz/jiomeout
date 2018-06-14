@@ -45,7 +45,7 @@ http://www.templatemo.com/tm-506-tinker
 
     <?php
     NavBar::begin([
-        'brandLabel' =>' <em>Jio</em>meout',
+        'brandLabel' =>' <em>#Jio</em>meout',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-fixed-top navbar-custom',

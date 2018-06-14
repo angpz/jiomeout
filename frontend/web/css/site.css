@@ -123,3 +123,7 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.transparent-box{
+    background: rgba(255, 255, 255, 0.6);
+}

@@ -13,7 +13,7 @@ $this->title ='Events List';
 
 ?>
     <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
-        <h1><?= Html::encode($this->title) ?></h1><?= Html::a('Create Event',['/event/eventform'],['class'=>'btn btn-success']);?>
+        <h1><?= Html::encode($this->title) ?></h1>
     </div>
     <div class="row white-background">
         <div class="col-lg-6 col-lg-offset-3">
@@ -60,30 +60,48 @@ $this->title ='Events List';
 
             <?php if (!empty($events)) : ?>
                     <?php foreach ($events as $k => $event) : ?>
+                        <?php switch ($event['status']) {
+                            case 2:
+                                $box = 'success-box';
+                                break;
+                            case 3:
+                                $box = 'warning-box';
+                                break;
+                            case 4:
+                                $box = 'danger-box';
+                                break;
+                            
+                            default:
+                                $box = 'default-box';
+                                break;
+                        }
+                        ?>
                         <tr>
-                            <td rowspan="2">
+                            <td class=<?= $box;?> rowspan="2">
                                 Title: <b><?= $event['event']['title']; ?></b><br>
                                 Detail: <?= $event['event']['eventSelection'][0]['event_name']; ?><br>
                                 Location: <?= $event['event']['eventSelection'][0]['event_location']; ?><br>
                             </td>
-                            <td>Date: <?= date('dM Y, H:i', $event['event']['eventSelection'][0]['event_time']); ?></td>
+                            <td class=<?= $box;?>>Date: <?= date('dM Y, H:i', $event['event']['eventSelection'][0]['event_time']); ?></td>
+                        </tr>
                             <tr>
                                 <?php if($event['status'] == 1) :?>
-                                    <td>
+                                    <td class="default-box">
                                         <?= Html::a('Going',['/event/confirm-event','eid'=>$event['event_id'],'status'=>2],['class'=>'btn btn-success']) ?>
                                         <?= Html::a('Maybe',['/event/confirm-event','eid'=>$event['event_id'],'status'=>3],['class'=>'btn btn-warning','data-confirm'=>"Maybe Going?"]) ?>
                                         <?= Html::a('Decline',['/event/confirm-event','eid'=>$event['event_id'],'status'=>4],['class'=>'btn btn-danger','data-confirm'=>"Declining to going?"]) ?>
-                                    </td>
+
                                 <?php elseif($event['status'] == 2): ?>
-                                    <td class='success-box'>Going</td>
+                                    <td class='success-box'>Going
                                 <?php elseif($event['status'] == 3): ?>
-                                    <td class='warning-box'>Maybe</td>
+                                    <td class='warning-box'>Maybe
                                 <?php elseif($event['status'] == 4): ?>
-                                    <td class='danger-box'>Declined</td>
+                                    <td class='danger-box'>Declined
                                 <?php endif;?>
+
+                                    </td>
                             </tr>
                             
-                        </tr>
                     <?php endforeach;?>
             <?php endif;?>
 
