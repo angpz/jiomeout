@@ -12,13 +12,22 @@ use kartik\switchinput\SwitchInput;
 use frontend\assets\EventAsset;
 
 EventAsset::register($this);
-$this->title ='Create an Event';
+if (!empty($type)) {
+    if ($type == 2) {
+        $title ='Movie';
+    }
+    else{
+        $title ='Event';
+    }
+}
+
+$this->title = 'Create a '.$title;
 ?>
 
      <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
     <h1><?= Html::encode($this->title) ?></h1>
    
-    <p>Create Your Own Event and JIO Your Friends!</p>
+    <p>Create Your Own <?= $title; ?> and JIO Your Friends!</p>
   </div>
     <div class="container">
    <div class="col-lg-6 col-lg-offset-3">
@@ -26,7 +35,7 @@ $this->title ='Create an Event';
 
                 <?= $form->field($model, 'title')->textInput(['autofocus' => true])->label('Title') ?>
 
-                <div class='white-background'><?= $form->field($model, 'inv_friend')->checkboxList($userlist); ?></div>
+                <div><?= $form->field($model, 'inv_friend')->checkboxList($userlist)->label('Invite Friends'); ?></div>
 
                 <div class="col-lg-3">
                     <div class="form-group">

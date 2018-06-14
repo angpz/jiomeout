@@ -25,7 +25,7 @@ class CreateEventForm extends Model
     {
         return [
             [['title','inv_friend'], 'required'],
-            ['title', 'string', 'min' => 2, 'max' => 255],
+            ['title', 'string', 'min' => 5, 'max' => 255],
             
             ['endtime', 'required'],
 
@@ -40,10 +40,10 @@ class CreateEventForm extends Model
      *
      * @return User|null the saved model or null if saving fails
      */
-    public function eventform()
+    public function eventform($type)
     {
         $events =new Events();
-        $events->type= 1;
+        $events->type= $type;
         $events->title=$this->title;
         $events->poll=(int)$this->poll;
         $events->organizer_id = Yii::$app->user->identity->id;

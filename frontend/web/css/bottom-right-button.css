@@ -1,11 +1,42 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500);
 
+.fba-icon{
+  color: white;
+}
+
+.fba-icon:hover{
+  color: #66b2b2;
+}
+
+.icon-plus-position{
+  font-size: 2em;
+  width: 40px;
+  height: 40px;
+  margin-top: 20%;
+  margin-left: 20%;
+}
+
+.icon-film-position{
+  font-size: 1.7em;
+  width: 40px;
+  height: 40px;
+  padding-left: 18%;
+  padding-top: 5%;
+}
+
+.icon-calendar-position{
+  font-size: 1.7em;
+  width: 40px;
+  height: 40px;
+  padding-left: 20%;
+  padding-top: 5%;
+}
 
 .bottom-right-container {
   bottom: 0;
   position: fixed;
   margin: 1em;
-  right: 0px;
+  right: 10px;
 }
 
 .bottom-right-button {
@@ -54,6 +85,12 @@
           transition-delay: 25ms;
   background-color: #66b2b2;
   background-size: contain;
+}
+
+.bottom-right-button:nth-last-child(1):hover,
+.bottom-right-button:not(:last-child):nth-last-child(2):hover,
+.bottom-right-button:not(:last-child):nth-last-child(3):hover {
+  background-color: white;
 }
 
 .bottom-right-button:not(:last-child):nth-last-child(2) {

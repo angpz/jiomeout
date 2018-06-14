@@ -10,7 +10,7 @@ use common\models\user\{User,UserRelations};
 
 class EventController extends Controller
 {
-    public function actionEventform()
+    public function actionEventform($type)
     {
         if (Yii::$app->user->isGuest) {      
             Yii::$app->session->setflash('warning','Please log in first');
@@ -21,7 +21,7 @@ class EventController extends Controller
         $userlist = Arrayhelper::map(UserRelations::find()->where('primary_uid = :pu',[':pu'=>Yii::$app->user->identity->id])->joinWith('foreignUser')->all(),'foreign_uid','foreignUser.username');
 
         if($model->load(Yii::$app->request->post())){
-            $event = $model->eventform();
+            $event = $model->eventform($type);
 
             if($event != false){
                 Yii::$app->getSession()->setFlash('success','Created success');
@@ -29,7 +29,7 @@ class EventController extends Controller
             };
         }
 
-        return $this->render('eventform', ['model' => $model,'userlist'=>$userlist]);
+        return $this->render('eventform', ['model' => $model,'userlist'=>$userlist,'type'=>$type]);
     }
 
     public function actionEventFillDetails($eid)
