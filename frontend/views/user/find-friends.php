@@ -11,9 +11,8 @@ use frontend\controllers\UserController;
 UserAsset::register($this);
 
 ?>
-<div class="container white-background top-spacing">
-    <div class="row">
-        <div class="col-lg-5">
+   <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
 
             <div class="friend-nav">
                 <ul>
@@ -57,4 +56,4 @@ UserAsset::register($this);
 
         </div>
     </div>
-</div>
+

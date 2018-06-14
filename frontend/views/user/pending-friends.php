@@ -11,9 +11,8 @@ use frontend\assets\UserAsset;
 UserAsset::register($this);
 
 ?>
-<div class="container white-background top-spacing">
-    <div class="row">
-        <div class="col-lg-5">
+   <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
             <div class="friend-nav">
                 <ul>
                     <li><?= Html::a('Friend List',['/user/friends']); ?></li>
@@ -41,4 +40,4 @@ UserAsset::register($this);
 
         </div>
     </div>
-</div>
+
