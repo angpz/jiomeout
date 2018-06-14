@@ -9,7 +9,7 @@ $this->title = 'Jio Me out';
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1 transparent-box">
+        <div class="col-md-10 col-md-offset-1">
           <h1><span class="brand-heading">It's been a long time, buddy.</span></h1>
           <p class="intro-text">#jiomeout now!</p>
           </div>
