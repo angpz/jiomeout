@@ -28,12 +28,12 @@ $this->title ='Events List';
                     </ul>
                 <?php ActiveForm::end(); ?>
             </div>
-            <table class='table table-bordered'>
+            <table class='table table-hover event-table'>
 
             <?php if(!empty($created_events)) : ?>
                 <?php foreach ($created_events as $key => $created_event) : ?>
-                        <tr>
-                            <td rowspan="2">
+                        <tr class="default-box">
+                            <td><div style="float: right;font-size: 2em;"><i class="fa fa-user"></i></div>
                                 Title: <b><?= $created_event['title']; ?></b><br>
 
                                 <?php if(!empty($created_event['eventSelection'])): ?>
@@ -45,12 +45,10 @@ $this->title ='Events List';
 
                             <td>
                                 <?php if(!empty($created_event['eventSelection'])): ?>
-                                    Date: <?= date('Y-m-d H:i:s', $created_event['eventSelection'][0]['event_time']) ?>
+                                    Date: <?= date('d M Y, g:i a', $created_event['eventSelection'][0]['event_time']) ?>
                                 <?php else: echo 'Pending'; endif; ?>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                                <br>
+                                <hr class="td-hr">
                                 <?= Html::a('Edit','#',['class'=>'btn btn-warning']) ?>
                                 <?= Html::a('Cancel','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
                             </td>
@@ -77,26 +75,26 @@ $this->title ='Events List';
                         }
                         ?>
                         <tr>
-                            <td class=<?= $box;?> rowspan="2">
+                            <td class=<?= $box;?>>
                                 Title: <b><?= $event['event']['title']; ?></b><br>
                                 Detail: <?= $event['event']['eventSelection'][0]['event_name']; ?><br>
                                 Location: <?= $event['event']['eventSelection'][0]['event_location']; ?><br>
                             </td>
-                            <td class=<?= $box;?>>Date: <?= date('dM Y, H:i', $event['event']['eventSelection'][0]['event_time']); ?></td>
-                        </tr>
-                            <tr>
+                            <td class=<?= $box;?>>Date: <?= date('d M Y, g:i a', $event['event']['eventSelection'][0]['event_time']); ?>
+                            <br>
+                            <hr class="td-hr">
                                 <?php if($event['status'] == 1) :?>
-                                    <td class="default-box">
+                                    
                                         <?= Html::a('Going',['/event/confirm-event','eid'=>$event['event_id'],'status'=>2],['class'=>'btn btn-success']) ?>
                                         <?= Html::a('Maybe',['/event/confirm-event','eid'=>$event['event_id'],'status'=>3],['class'=>'btn btn-warning','data-confirm'=>"Maybe Going?"]) ?>
                                         <?= Html::a('Decline',['/event/confirm-event','eid'=>$event['event_id'],'status'=>4],['class'=>'btn btn-danger','data-confirm'=>"Declining to going?"]) ?>
 
                                 <?php elseif($event['status'] == 2): ?>
-                                    <td class='success-box'>Going
+                                    Going
                                 <?php elseif($event['status'] == 3): ?>
-                                    <td class='warning-box'>Maybe
+                                    Maybe
                                 <?php elseif($event['status'] == 4): ?>
-                                    <td class='danger-box'>Declined
+                                    Declined
                                 <?php endif;?>
 
                                     </td>

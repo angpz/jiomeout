@@ -198,11 +198,11 @@ hr {
 	text-transform: uppercase;
 }
 #intro .intro-body .brand-heading {
-	color: #008080;
-	text-shadow: 0 4px #006666;
+	color: #ffffff;
+	text-shadow: 0 4px #808080;
 }
 #intro .intro-body .intro-text {
-	font-size: 18px;
+	font-size: 30px;
 }
 
 @media(min-width:768px) {
@@ -212,10 +212,10 @@ hr {
 	padding: 200px 0;
 }
 #intro .intro-body .intro-text {
-	font-size: 18px;
+	font-size: 30px;
 	letter-spacing: 1px;
 	margin-bottom: 100px;
-	color: rgba(0,128,128,0.9);
+	color: rgba(255,255,255,0.9);
 }
 }
 .btn-default {
@@ -600,6 +600,16 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .hover-bg .hover-text {
 	padding: 20%;
 }
+
+#intro .intro-body .phone-up{
+	padding-bottom: 20%;
+}
+
+#intro .intro-body .brand-heading {
+	color: #ffffff;
+	text-shadow: none;
+}
+
 }
 
 @media (max-width: 640px) {

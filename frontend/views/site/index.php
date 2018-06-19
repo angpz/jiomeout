@@ -9,8 +9,8 @@ $this->title = 'Jio Me out';
   <div class="intro-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h1><span class="brand-heading">It's been a long time, buddy.</span></h1>
+        <div class="col-md-10 col-md-offset-1 phone-up">
+          <h1><span class="brand-heading" style="font-size: 0.6em;">It's been a long time, buddy.</span></h1>
           <p class="intro-text">#jiomeout now!</p>
           </div>
           <div class="col-md-10 col-md-offset-1"><a href="#about" class="btn btn-default page-scroll" style="background-color: #008080;">Learn More</a> </div>
@@ -213,92 +213,6 @@ $this->title = 'Jio Me out';
                 <p>Web Design</p>
               </div>
               <img src="img/portfolio/08.jpg" class="img-responsive" alt="Project Title"> </a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Team Section -->
-<div id="team" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-      <h2>Meet the team</h2>
-      <hr>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
-    </div>
-    <div id="row">
-      <div class="col-xs-6 col-md-3 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/01.jpg" alt="..." class="img-thumbnail team-img">
-          <div class="caption">
-            <h3>John Doe</h3>
-            <p>Founder / CEO</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-md-3 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/02.jpg" alt="..." class="img-thumbnail team-img">
-          <div class="caption">
-            <h3>Mike Doe</h3>
-            <p>Web Designer</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-md-3 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/03.jpg" alt="..." class="img-thumbnail team-img">
-          <div class="caption">
-            <h3>Jane Doe</h3>
-            <p>Creative Director</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-6 col-md-3 col-sm-6">
-        <div class="thumbnail"> <img src="img/team/04.jpg" alt="..." class="img-thumbnail team-img">
-          <div class="caption">
-            <h3>Larry Show</h3>
-            <p>Project Manager</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Testimonials Section -->
-<div id="testimonials" class="text-center">
-  <div class="container">
-    <div class="section-title center">
-      <h2>What our clients say</h2>
-      <hr>
-    </div>
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="row testimonials">
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>John Doe</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
-          </div>
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>Jane Doe</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
-          </div>
-          <div class="col-sm-4">
-            <blockquote><i class="fa fa-quote-left"></i>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitduis sed dapibus leo nec ornare.</p>
-              <div class="clients-name">
-                <p><strong>Chris Smith</strong><br>
-                  <em>CEO, Company Inc.</em></p>
-              </div>
-            </blockquote>
           </div>
         </div>
       </div>
