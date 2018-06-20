@@ -13,17 +13,13 @@ class EventAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/user.css',
-        'css/animate.min.css',
+        
+        //event-index 
         'css/event-index.css',
         'css/themify-icons.css',
     ];
     public $js = [
         'js/event.js',
-
-        //index//
-        'js/bootstrap-checkbox-radio.js',
-        'js/bootstrap-notify.js',
-
     ];
     public $depends = [
         'yii\web\YiiAsset',
