@@ -29,27 +29,32 @@ $this->title ='Fill In Details/Lets Vote';
 
                         <?php foreach ($event['eventSelection'] as $k => $selection): ?>
                             <tr>
-                                <td><input type="radio" name="selection" value=<?= $selection['id']?>></td>
-                                <td><?= ($k+1).'. '.'<b>'.$selection['event_name'].'</b> at <b>'.$selection['event_location'].'</b> when <b>'.date('dM Y, H:i',$selection['event_time']).'</b>'; ?></td>
+                                <td>
+                                    <!-- radio button loop -->
+                                    <input type="radio" name="selection" value=<?= $selection['id']?> <?php /*find chosen detail*/ if(!empty($inv_person['event_detail_id'])){if($inv_person['event_detail_id']==$selection['id']){echo 'checked="checked"';}}?>>
+                                </td>
+                                <td><?= ($k+1).'. '.'<b>'.$selection['event_name'].'</b> at <b>'.$selection['event_location'].'</b> when <b>'.date('d M Y, g:i a',$selection['event_time']).'</b>'; ?></td>
                             </tr>
                         <?php endforeach; ?>
-                        <tr>
-                            <td><input type="radio" name="selection" value='other'></td>
-                            <td>
-                                Other: <br>
-                                <input type="text" name="event" placeholder="What to do">
-                                <input type="text" name="place"  placeholder="Location">
+                        <?php if(count($event['eventSelection'])<5): ?>
+                            <tr>
+                                <td><input type="radio" name="selection" value='other'></td>
+                                <td>
+                                    Other: <br>
+                                    <input type="text" name="event" placeholder="What to do">
+                                    <input type="text" name="place"  placeholder="Location">
 
-                                <?= $form->field($event_details, 'event_time')->widget(DateTimePicker::classname(), [
-                                    'options' => ['placeholder' => 'Select time'],
-                                    'pluginOptions' => [
-                                        'format' => 'yyyy-mm-dd hh:ii:ss',
-                                        'autoclose'=>true,
-                                        'startDate' => date('Y-m-d H:ii:ss'), 
-                                    ]
-                                ])->label('') ?>
-                            </td>
-                        </tr>
+                                    <?= $form->field($event_details, 'poll_event_time')->widget(DateTimePicker::classname(), [
+                                        'options' => ['placeholder' => 'Select time'],
+                                        'pluginOptions' => [
+                                            'format' => 'yyyy-mm-dd hh:ii:ss',
+                                            'autoclose'=>true,
+                                            'startDate' => date('Y-m-d H:ii:ss'), 
+                                        ]
+                                    ])->label('') ?>
+                                </td>
+                            </tr>
+                        <?php endif;?>
                     </table>
 
                      <div class="form-group">

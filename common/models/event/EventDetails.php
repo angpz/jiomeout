@@ -48,7 +48,7 @@ class EventDetails extends \yii\db\ActiveRecord
             'event_name' => 'Event Name',
             'event_location' => 'Event Location',
             'event_time' => 'Event Time',
-            'event_end_time' => 'Buzy Time',
+            'event_end_time' => 'Finished Time',
             'poll' => 'Poll',
         ];
     }

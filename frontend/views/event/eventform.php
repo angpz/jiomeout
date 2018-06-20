@@ -42,7 +42,8 @@ $this->title = 'Create a '.$title;
                         <?= $form->field($model,'poll')->widget(SwitchInput::classname(),['options'=>['id'=>'switch-change'],'type' => SwitchInput::CHECKBOX,
                         ]); ?>
                     </div>
-                </div>
+                </div><br>
+                
                 <div class="col-lg-9">
                     <div clas="form-group">
                          <?= $form->field($model, 'poll_close_time')->widget(DateTimePicker::classname(), [
