@@ -6,30 +6,26 @@ use yii\web\Controller;
 use yii\helpers\ArrayHelper;
 use frontend\models\CreateEventForm;
 use common\models\event\{Events,EventDetails,EventInvPerson};
-use common\models\user\{User,UserRelations};
+use common\models\user\{User,UserRelations,UserFriendRequests};
 
 class EventController extends Controller
 {   
      public function actionIndex()
     {
-        // if (Yii::$app->user->isGuest) {      
-        //     Yii::$app->session->setflash('warning','Please log in first');
-        //     return $this->redirect(['/site/login']);
-        // }
+        if (Yii::$app->user->isGuest) {      
+            Yii::$app->session->setflash('warning','Please log in first');
+            return $this->redirect(['/site/login']);
+        }
+        $ongoingevent = EventInvPerson::find()->where('uid = :id AND status = 2',[':id'=>Yii::$app->user->identity->id])->all();
+    
+        foreach ($ongoingevent as $num => $checkid) {
+        
+            $events = Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->orderby('created_time DESC')->one();
+        }
+            
+        $friendrequests = UserFriendRequests::find()->where('requester_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
 
-        // $model = new CreateEventForm();
-        // $userlist = Arrayhelper::map(UserRelations::find()->where('primary_uid = :pu',[':pu'=>Yii::$app->user->identity->id])->joinWith('foreignUser')->all(),'foreign_uid','foreignUser.username');
-
-        // if($model->load(Yii::$app->request->post())){
-        //     $event = $model->eventform($type);
-
-        //     if($event != false){
-        //         Yii::$app->getSession()->setFlash('success','Created success');
-        //         return $this->redirect(['/event/event-fill-details','eid'=>$event['id']]);
-        //     };
-        // }
-
-        return $this->render('index');
+        return $this->render('index',['events'=>$events,'friendrequests'=>$friendrequests]);
     }
     public function actionEventform($type)
     {

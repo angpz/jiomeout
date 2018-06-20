@@ -27,13 +27,12 @@ EventAsset::register($this);
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-warning text-center">
-                                            <i class="ti-server"></i>
+                                            <i class="ti-file"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Capacity</p>
-                                            105GB
+                                            Create
                                         </div>
                                     </div>
                                 </div>
@@ -52,20 +51,20 @@ EventAsset::register($this);
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-success text-center">
-                                            <i class="ti-wallet"></i>
+                                            <i class="ti-flag-alt"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Revenue</p>
-                                            $1,345
+                                            <p></p>
+                                            Events
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-calendar"></i> Last day
+                                        Nearest :  <?=  $events['title'] ?> 
                                     </div>
                                 </div>
                             </div>
@@ -77,20 +76,20 @@ EventAsset::register($this);
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-danger text-center">
-                                            <i class="ti-pulse"></i>
+                                            <i class="ti-user"></i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="numbers">
-                                            <p>Errors</p>
-                                            23
+                                            Friends
                                         </div>
                                     </div>
                                 </div>
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-timer"></i> In the last hour
+                                       <!--  <i class="ti-timer"></i> In the last hour -->
+                                       Friend request : <?php echo $friendrequests ?>
                                     </div>
                                 </div>
                             </div>
