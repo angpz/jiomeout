@@ -25,6 +25,11 @@
 	margin: 0 150px;
 }
 
+.fc-view{
+	position: relative;
+	padding-bottom:-40px;
+}
+
 @media(min-width:768px) {
 	.btn-group > .btn{
 		padding:0 20px;
@@ -40,10 +45,6 @@
 @media(max-width:768px) {
 	.calender-box{
 		margin:0px;
-	}
-	.fc-view{
-		height:70%;
-		width: 100%;
 	}
 	.fc-center h2{
 		font-size: 30px;

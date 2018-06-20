@@ -87,7 +87,7 @@ ul, ol {
 	webkit-padding: 0;
 	moz-padding: 0;
 }
-hr {
+hr.homepage{
 	height: 4px;
 	width: 70px;
 	text-align: center;

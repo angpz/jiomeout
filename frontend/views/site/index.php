@@ -23,7 +23,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title text-center center">
       <h2>About us</h2>
-      <hr>
+      <hr class="homepage">
     </div>
     <div class="row">
       <div class="col-md-4"><img src="img/about.jpg" class="img-responsive"></div>
@@ -52,8 +52,10 @@ $this->title = 'Jio Me out';
 <div id="services" class="text-center">
   <div class="container">
     <div class="section-title center">
+
       <h2>OUR FEATURES</h2>
       <hr>
+
     </div>
     <div class="space"></div>
     <div class="row">
@@ -115,11 +117,14 @@ $this->title = 'Jio Me out';
 <div id="works">
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
+
       <h2>easy login</h2>
       <hr>
+
       <div class="clearfix"></div>
     </div>
     <div class="categories">
+
       <div><a href="#google" class="btn btn-google"><i class="fa fa-google"></i>Login with Google</a></div>
       <p>Don’t want to commit yet? Explore our features as guest user with no string attached!</p>
       <div><a href="#google" class="btn btn-tryit">Try it Out</a></div>
@@ -136,6 +141,7 @@ $this->title = 'Jio Me out';
           <hr>
           <p class='content'>Engage with other users, share anything to your friends, or report product issue to us. </p>
           <p class='content'>Join us and create a better JIO-munity!</p>
+
           </div>
           <div class="col-md-10 col-md-offset-1" style="text-align: center;"><a href="#about" class="btn btn-default page-scroll" style="background-color: #008080;">Take A Look</a> </div>
       </div>
@@ -147,7 +153,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title center">
       <h2>Contact us</h2>
-      <hr>
+      <hr class="homepage">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
     </div>
     <div class="col-md-8 col-md-offset-2">
