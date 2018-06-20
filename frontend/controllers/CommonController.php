@@ -76,12 +76,6 @@ class CommonController extends Controller
         $controller = Yii::$app->controller->id;
         $action = Yii::$app->controller->action->id;
         $page = $controller.'/'.$action;
-
-        if ($page == 'site/index') {
-            $menuItems[] = ['label' => 'Main', 'url' =>  '#','options'=>['class'=>'scroll-top']];
-            $menuItems[] = ['label' => 'About us', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'about']];
-            $menuItems[] = ['label' => 'Blog', 'url' =>  '#','options'=>['class'=>'scroll-link','data-id'=>'blog']];
-        }
         
         $menuItems[] = ['label' => 'Sign In', 'url' =>  Url::to(['/site/login'])];
         $menuItems[] = ['label' => 'Sign Up', 'url' =>  Url::to(['/site/signup'])];
@@ -91,11 +85,17 @@ class CommonController extends Controller
     public static function userNav()
     {
         $menuItems = array();
-        $menuItems[] = ['label' => 'Calendar', 'url' => Url::to(['/event/calendar'])];
         $menuItems[] = ['label' => 'Events', 'url' => Url::to(['/event/event-list'])];
+        $menuItems[] = ['label' => 'Calendar', 'url' => Url::to(['/event/calendar'])];
         $menuItems[] = ['label' => 'Friends', 'url' => Url::to(['/user/friends'])];
-        $menuItems[] = ['label' => 'Setting', 'url' => '#'];
-        $menuItems[] = ['label' => 'Sign Out', 'url' => Url::to(['/site/logout'])];
+        $menuItems[] = ['label' => 'Hello '.Yii::$app->user->identity->username,'items'=>[
+        		['label'=>'Profile','url'=>'#'],
+        		['label' => 'Setting', 'url' => '#'],
+        		['label' => 'Sign Out', 'url' => Url::to(['/site/logout'])],
+        	],
+        ];
+
+        //var_dump($menuItems);exit;
         return $menuItems;
     }
 }

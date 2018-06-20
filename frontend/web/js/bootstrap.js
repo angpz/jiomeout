@@ -534,8 +534,10 @@ if (typeof jQuery === 'undefined') {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+// !!!!!!!!!!!!!!!!!!!  ATTENTION !!!!!!!!!!!!!!!!!!!!!!
+// dropdown class definition was disable because of affecting user navbar profile dropdown list
 
-+function ($) {
+/*+function ($) {
   'use strict';
 
   // DROPDOWN CLASS DEFINITION
@@ -686,7 +688,7 @@ if (typeof jQuery === 'undefined') {
     .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
     .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
 
-}(jQuery);
+}(jQuery);*/
 
 /* ========================================================================
  * Bootstrap: modal.js v3.3.4

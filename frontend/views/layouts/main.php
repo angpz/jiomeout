@@ -38,6 +38,7 @@ http://www.templatemo.com/tm-506-tinker
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
+    
 <body>
 <?php $this->beginBody() ?>
 <div class="header">
@@ -79,7 +80,8 @@ http://www.templatemo.com/tm-506-tinker
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
-
+<
+<?php if(!Yii::$app->user->isGuest): ?>
     <nav class="bottom-right-container"  > 
     
      <a href=<?= Url::to(['/event/eventform','type'=>1]);?> class="bottom-right-button" tooltip="Event">
@@ -96,7 +98,7 @@ http://www.templatemo.com/tm-506-tinker
 
 
   </nav>
-
+<?php endif;?>
 </footer>
 
 <?php $this->endBody() ?>   
