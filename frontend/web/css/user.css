@@ -66,3 +66,20 @@
     background-color: #d14a47;
     color:white;
 }
+
+.event-table{
+    border-collapse: separate;
+    border-spacing: 0px 12px;
+
+}
+
+.td-hr{
+    height: 2px;
+    width: 100%;
+    position: relative;
+    background: #ffffff;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+}

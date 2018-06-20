@@ -198,11 +198,11 @@ hr.homepage{
 	text-transform: uppercase;
 }
 #intro .intro-body .brand-heading {
-	color: #008080;
-	text-shadow: 0 4px #006666;
+	color: #ffffff;
+	text-shadow: 0 4px #808080;
 }
 #intro .intro-body .intro-text {
-	font-size: 18px;
+	font-size: 30px;
 }
 
 @media(min-width:768px) {
@@ -212,10 +212,10 @@ hr.homepage{
 	padding: 200px 0;
 }
 #intro .intro-body .intro-text {
-	font-size: 18px;
+	font-size: 30px;
 	letter-spacing: 1px;
 	margin-bottom: 100px;
-	color: rgba(0,128,128,0.9);
+	color: rgba(255,255,255,0.9);
 }
 }
 .btn-default {
@@ -304,133 +304,56 @@ hr.homepage{
 	color: #008080;
 	transition: all 0.5s;
 }
+/* Join our community Section */
+#join {
+	padding: 140px 0;
+	background: url(../img/services-bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+#join .join-body{
+	
+}
+#join h1 {
+	font-size: 76px;
+	font-weight: 700;
+	color: rgba(255,255,255,0.8);
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#join .content {
+	font-size: 40px;
+	color: #f6f6f6;
+	font-weight: 600;
+	text-align: center;
+}
 /* Gallery Section */
 #works {
-	padding: 120px 0;
+	padding: 160px 0;
 	background: #f6f6f6;
 }
 .categories {
 	padding-bottom: 30px;
 	text-align: center;
 }
-ul.cat li {
-	display: inline-block;
+.btn-google{
+	font-size: 2em;
+	color: white;
+	background-color: rgb(221,75,62);
 }
-ol.type li {
-	display: inline-block;
-	margin-left: 20px;
+.btn-google i{
+	padding-right: 10px;
+	border-right: 1px solid #cc2900;
 }
-ol.type li a {
-	color: #777;
-	padding: 8px 16px;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+#works p{
+	font-size: 1.5em;
+	margin: 20px;
 }
-ol.type li a.active {
-	color: #f6f6f6;
-	border: 1px solid #008080;
-	background: #008080;
-}
-ol.type li a:hover {
-	color: #f6f6f6;
-	border: 1px solid #008080;
-	background: #008080;
-}
-.isotope-item {
-	z-index: 2
-}
-.isotope-hidden.isotope-item {
-	z-index: 1
-}
-.isotope, .isotope .isotope-item {
-	/* change duration value to whatever you like */
-	-webkit-transition-duration: 0.8s;
-	-moz-transition-duration: 0.8s;
-	transition-duration: 0.8s;
-}
-.isotope-item {
-	margin-right: -1px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-.isotope {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition-property: height, width;
-	-moz-transition-property: height, width;
-	transition-property: height, width;
-}
-.isotope .isotope-item {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition-property: -webkit-transform, opacity;
-	-moz-transition-property: -moz-transform, opacity;
-	transition-property: transform, opacity;
-}
-.portfolio-item {
-	margin-bottom: 30px;
-}
-.portfolio-item .hover-bg {
-	max-height: 190px;
-	overflow: hidden;
-	position: relative;
-}
-.hover-bg .hover-text {
-	position: absolute;
-	text-align: center;
-	margin: 0 auto;
-	color: rgba(255,255,255,0.6);
-	background: rgba(0, 0, 0, 0.66);
-	padding: 25% 0;
-	height: 100%;
-	width: 100%;
-	opacity: 0;
-	transition: all 0.5s;
-}
-.hover-bg .hover-text>h4 {
-	opacity: 0;
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
-	transition: all 0.3s;
-	color: #f6f6f6;
-}
-.hover-bg:hover .hover-text>h4 {
-	opacity: 1;
-	-webkit-backface-visibility: hidden;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-}
-.hover-bg .hover-text>p {
-	opacity: 0;
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
-	transition: all 0.3s;
-}
-.hover-bg:hover .hover-text>p {
-	opacity: 1;
-	-webkit-backface-visibility: hidden;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-}
-.hover-bg .hover-text>i {
-	opacity: 0;
-	-webkit-transform: translateY(0);
-	transform: translateY(0);
-	transition: all 0.3s;
-}
-.hover-bg:hover .hover-text>i {
-	opacity: 1;
-	-webkit-backface-visibility: hidden;
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
-}
-.hover-bg:hover .hover-text {
-	opacity: 1;
-}
-#works i.fa {
-	font-size: 20px;
-	padding: 5px;
-	color: #F4D03F;
+.btn-tryit{
+	font-size: 2em;
+	color: white;
+	background-color: #008080;
 }
 /* Team Section */
 #team {
@@ -600,6 +523,25 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .hover-bg .hover-text {
 	padding: 20%;
 }
+
+#intro .intro-body .phone-up{
+	padding-bottom: 20%;
+}
+
+#join .join-body .phone-up h1{
+	font-size: 2.5em;
+	text-align: center;
+}
+#join .join-body .phone-up .content{
+	font-size: 1.5em;
+}
+
+
+#intro .intro-body .brand-heading {
+	color: #ffffff;
+	text-shadow: none;
+}
+
 }
 
 @media (max-width: 640px) {
