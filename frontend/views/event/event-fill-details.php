@@ -75,18 +75,7 @@ $this->title ='Fill In Details/Lets Vote';
                             'autoclose'=>true,
                             'startDate' => date('Y-m-d H:ii:ss'), 
                         ]
-                    ])->label('Event Start Time') ?>
-
-                    <?php echo $form->field($event_details, 'event_end_time')->widget(DateTimePicker::classname(), [
-                        'options' => ['placeholder' => 'Select end time'],
-                        //'readonly'=>true,
-                        'pluginOptions' => [
-                            'format' => 'yyyy-mm-dd hh:ii:ss',
-                            'autoclose'=>true,
-                            'startDate' => date('Y-m-d H:ii:ss'), 
-
-                        ]
-                    ]); ?>
+                    ])->label('Event Time') ?>
 
                     <div class="form-group">
                         <?= Html::submitButton('Create', ['class' => 'raised-btn main-btn form-control', 'name' => 'signup-button']) ?> <br>

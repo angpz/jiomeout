@@ -57,38 +57,65 @@ class EventController extends Controller
             Yii::$app->session->setFlash('warning','You are not invited to this event!');
             return $this->redirect(['/event/index']);
         }
+        //poll == 0 means only organizer can add detail, so invt person cant access
+        if ($event['poll'] == 0 && $event['organizer_id']!=Yii::$app->user->identity->id) {
+            Yii::$app->session->setFlash('warning','Event still pending!');
+            return $this->redirect(['/event/index']);
+        }
 
         $event_details = new EventDetails();
         $event_details['event_id'] = $eid;
 
         if (Yii::$app->request->post()) {
-            //check empty chosen selection
-            if (!empty(Yii::$app->request->post('selection'))) {
-                //if same as current poll, redirect to home
-                if (Yii::$app->request->post('selection') == $inv_person['event_detail_id']) {
-                    return $this->redirect(['/event/event-fill-details','eid'=>$eid]);
-                }
-                //if selection was other, function add new detail
-                if (Yii::$app->request->post('selection') == 'other') {
-                    $add_new = self::addNewEventDetail(Yii::$app->request->post(),$eid,$event);
-                    if ($add_new['valid']==true) {
-                        Yii::$app->session->setFlash('success',$add_new['message']);
+            
+            if ($event['poll'] == 0) {
+                $event_details->load(Yii::$app->request->post());
+                $event_details['poll'] = $event['poll'];
+                if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
+                    if ($event_details->validate()) {
+                        $event_details->save();
+                        $event['status'] = 2;
+                        $event->save();
+                        Yii::$app->session->setFlash('success','Event Created!');
+                        return $this->redirect(['/event/event-list']);
                     }
                 }
                 else{
-                    $valid = self::chosenPoll($eid,Yii::$app->request->post('selection'));
-                    Yii::$app->session->setFlash('success','Changed!');
+                    Yii::$app->session->setFlash('warning','something went wrong!');
+                    return $this->redirect(['/event/index']);
                 }
-
-                //change event status
-                if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
-                    $event['status'] = 2;
-                    $event->save();
-                }
+               
             }
             else{
-                Yii::$app->session->setFlash('warning','Please select at least one selection.');
+                //check empty chosen selection
+                if (!empty(Yii::$app->request->post('selection'))) {
+                    //if same as current poll, redirect to home
+                    if (Yii::$app->request->post('selection') == $inv_person['event_detail_id']) {
+                        return $this->redirect(['/event/event-fill-details','eid'=>$eid]);
+                    }
+                    //if selection was other, function add new detail
+                    if (Yii::$app->request->post('selection') == 'other') {
+                        $add_new = self::addNewEventDetail(Yii::$app->request->post(),$eid,$event);
+                        if ($add_new['valid']==true) {
+                            Yii::$app->session->setFlash('success',$add_new['message']);
+                        }
+                    }
+                    else{
+                        $valid = self::chosenPoll($eid,Yii::$app->request->post('selection'));
+                        Yii::$app->session->setFlash('success','Changed!');
+                    }
+
+                    //change event status
+                    if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
+                        $event['status'] = 2;
+                        $event->save();
+                    }
+                }
+                else{
+                    Yii::$app->session->setFlash('warning','Please select at least one selection.');
+                }
             }
+            
 
             return $this->redirect(['/event/event-fill-details','eid'=>$eid]);
         }
@@ -137,7 +164,7 @@ class EventController extends Controller
             $events = $events->andWhere(['=','event_inv_person.status',$active]);
         }
 
-        $events = $events->andWhere(['=','events.status',2])->all();
+        $events = $events->andWhere(['=','events.status',2])->andWhere(['!=','events.organizer_id',Yii::$app->user->identity->id])->all();
         $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
 
         return $this->render('event-list',['events'=>$events,'created_events'=>$created_events,'active'=>$active]);
