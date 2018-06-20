@@ -9,7 +9,28 @@ use common\models\event\{Events,EventDetails,EventInvPerson};
 use common\models\user\{User,UserRelations};
 
 class EventController extends Controller
-{
+{   
+     public function actionIndex()
+    {
+        // if (Yii::$app->user->isGuest) {      
+        //     Yii::$app->session->setflash('warning','Please log in first');
+        //     return $this->redirect(['/site/login']);
+        // }
+
+        // $model = new CreateEventForm();
+        // $userlist = Arrayhelper::map(UserRelations::find()->where('primary_uid = :pu',[':pu'=>Yii::$app->user->identity->id])->joinWith('foreignUser')->all(),'foreign_uid','foreignUser.username');
+
+        // if($model->load(Yii::$app->request->post())){
+        //     $event = $model->eventform($type);
+
+        //     if($event != false){
+        //         Yii::$app->getSession()->setFlash('success','Created success');
+        //         return $this->redirect(['/event/event-fill-details','eid'=>$event['id']]);
+        //     };
+        // }
+
+        return $this->render('index');
+    }
     public function actionEventform($type)
     {
         if (Yii::$app->user->isGuest) {      

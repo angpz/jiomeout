@@ -73,7 +73,7 @@ http://www.templatemo.com/tm-506-tinker
     </div>
 </div>
 
-<footer class="footer">
+<footer class="mainfooter">
     <div class="container">
         <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 

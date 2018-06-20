@@ -23,7 +23,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title text-center center">
       <h2>About us</h2>
-      <hr>
+      <hr class="homepage">
     </div>
     <div class="row">
       <div class="col-md-4"><img src="img/about.jpg" class="img-responsive"></div>
@@ -53,7 +53,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title center">
       <h2>JOIN OUR COMMUNITY</h2>
-      <hr>
+      <hr class="homepage">
     </div>
     <div class="space"></div>
     <div class="row">
@@ -116,7 +116,7 @@ $this->title = 'Jio Me out';
   <div class="container"> <!-- Container -->
     <div class="section-title text-center center">
       <h2>Our Portfolio</h2>
-      <hr>
+      <hr class="homepage">
       <div class="clearfix"></div>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
     </div>
@@ -224,7 +224,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title center">
       <h2>Meet the team</h2>
-      <hr>
+      <hr class="homepage">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
     </div>
     <div id="row">
@@ -268,7 +268,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title center">
       <h2>What our clients say</h2>
-      <hr>
+      <hr class="homepage">
     </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -311,7 +311,7 @@ $this->title = 'Jio Me out';
   <div class="container">
     <div class="section-title center">
       <h2>Contact us</h2>
-      <hr>
+      <hr class="homepage">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diamcommodo nibh ante facilisis.</p>
     </div>
     <div class="col-md-8 col-md-offset-2">

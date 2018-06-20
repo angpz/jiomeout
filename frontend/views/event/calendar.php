@@ -30,7 +30,6 @@ EOF; -->
 	<div class="calender-box">
 		<?= \yii2fullcalendar\yii2fullcalendar::widget(array(
 				'options'=>[
-					
 				],
 				'clientOptions' => [
 				    'header' => [

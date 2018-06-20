@@ -19,7 +19,7 @@ body {
   min-height: 100vh;
 }
 
-.footer {
+.mainfooter {
     height: 60px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
