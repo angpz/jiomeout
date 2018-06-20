@@ -22,7 +22,6 @@ class EventAsset extends AssetBundle
 
         //index//
         'js/bootstrap-checkbox-radio.js',
-        'js/chartist.min.js',
         'js/bootstrap-notify.js',
 
     ];
