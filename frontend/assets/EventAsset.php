@@ -20,6 +20,7 @@ class EventAsset extends AssetBundle
     ];
     public $js = [
         'js/event.js',
+        'js/modal.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

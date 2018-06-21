@@ -698,7 +698,11 @@ if (typeof jQuery === 'undefined') {
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+// !!!!!!!!!!!!!!!!!!!!! ATTENTION !!!!!!!!!!!!!!!!!!!!!!!!!
+//modal definitoin disabled because of conflic of 2 boostrap modal file will instant close the modal
 
+
+/*
 +function ($) {
   'use strict';
 
@@ -1029,7 +1033,7 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
-
+*/
 /* ========================================================================
  * Bootstrap: tooltip.js v3.3.4
  * http://getbootstrap.com/javascript/#tooltip

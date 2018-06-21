@@ -19,7 +19,7 @@ $this->title ='Fill In Details/Lets Vote';
     <h1><?= Html::encode($this->title) ?></h1>
    
   </div>
-    <div class="container">
+    <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             <?php if($event['poll'] == 1): ?>
 

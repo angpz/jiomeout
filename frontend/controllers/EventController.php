@@ -69,29 +69,21 @@ class EventController extends Controller
         if (Yii::$app->request->post()) {
             
             if ($event['poll'] == 0) {
-                $event_details->load(Yii::$app->request->post());
-                $event_details['poll'] = $event['poll'];
-                if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
-                    if ($event_details->validate()) {
-                        $event_details->save();
-                        $event['status'] = 2;
-                        $event->save();
-                        Yii::$app->session->setFlash('success','Event Created!');
-                        return $this->redirect(['/event/event-list']);
-                    }
+                $event_details = self::editNoPollDetail(Yii::$app->request->post(),$event);
+                if ($event_details['valid'] ==true) {
+                    Yii::$app->session->setFlash('success',$event_details['message']);
+                    return $this->redirect(['/event/event-list']);
                 }
                 else{
-                    Yii::$app->session->setFlash('warning','something went wrong!');
-                    return $this->redirect(['/event/index']);
+                    Yii::$app->session->setFlash('warning',$event_details['message']);
                 }
-               
             }
             else{
                 //check empty chosen selection
                 if (!empty(Yii::$app->request->post('selection'))) {
                     //if same as current poll, redirect to home
                     if (Yii::$app->request->post('selection') == $inv_person['event_detail_id']) {
-                        return $this->redirect(['/event/event-fill-details','eid'=>$eid]);
+                        return $this->redirect(['/event/event-list']);
                     }
                     //if selection was other, function add new detail
                     if (Yii::$app->request->post('selection') == 'other') {
@@ -115,12 +107,44 @@ class EventController extends Controller
                     Yii::$app->session->setFlash('warning','Please select at least one selection.');
                 }
             }
-            
-
-            return $this->redirect(['/event/event-fill-details','eid'=>$eid]);
+            return $this->redirect(['/event/event-list']);
         }
 
+        //if event list look, must be modal
+        $word_start = strrpos(Yii::$app->request->referrer, '?r=') + 3; // +3 to not showing ?r= word
+        $permissionName = substr(Yii::$app->request->referrer, $word_start);
+        //if from event/eventlist, then return Ajax
+        if ($permissionName == 'event/event-list' || $permissionName == 'event%2Fevent-list') {
+            return $this->renderAjax('event-fill-details', ['event'=>$event,'event_details' => $event_details,'inv_person'=>$inv_person]);
+        }
         return $this->render('event-fill-details', ['event'=>$event,'event_details' => $event_details,'inv_person'=>$inv_person]);
+    }
+
+    public static function editNoPollDetail($post,$event)
+    {
+        $data = array();
+        $data['valid'] = '';
+        $data['message'] = '';
+
+        $event_details = new EventDetails();
+        $event_details['event_id'] = $event['id'];
+        $event_details->load($post);
+        $event_details['poll'] = $event['poll'];
+        //status != 2 means it was runnning, only organizer can edit event detail
+        if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
+            if ($event_details->validate()) {
+                $event_details->save();
+                $event['status'] = 2;
+                $event->save();
+                $data['valid'] = true;
+                $data['message'] = 'Event Created!';
+            }
+        }
+        else{
+            $data['valid'] = false;
+            $data['message'] = 'something went wrong!';
+        }
+        return $data;
     }
 
     public static function addNewEventDetail($post,$eid,$event)
@@ -153,6 +177,7 @@ class EventController extends Controller
         //choose poll and save to event detail
         $inv_person = EventInvPerson::find()->where('event_id = :eid and uid = :uid',[':eid'=>$eid,':uid'=>Yii::$app->user->identity->id])->one();
         $inv_person['event_detail_id'] = $detail_id;
+        $inv_person['status'] = 2;
         $inv_person->save();
     }
 
@@ -181,14 +206,14 @@ class EventController extends Controller
     public function actionConfirmEvent($eid,$status)
     {
         $event_inv = EventInvPerson::find()->where('uid = :uid',[':uid'=>Yii::$app->user->identity->id])->andWhere(['=','event_id',$eid])->one();
-        if ($event_int['status'] != 1) {
+        if ($event_inv['status'] != 1) {
             Yii::$app->session->setFlash('warning','Your replied to this event already!');
             return $this->redirect(['event-list']);
         }
         $event_inv['status'] = $status;
         $event_inv->save();
 
-        Yii::$app->session->setFlash('success','Your are accepted this event!');
+        Yii::$app->session->setFlash('success','Your gave reply to this event!');
         return $this->redirect(['event-list']);
     }
 
