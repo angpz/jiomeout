@@ -54,7 +54,7 @@ $this->title = 'Jio Me out';
     <div class="section-title center">
 
       <h2>OUR FEATURES</h2>
-      <hr>
+      <hr class="homepage">
 
     </div>
     <div class="space"></div>
@@ -119,7 +119,7 @@ $this->title = 'Jio Me out';
     <div class="section-title text-center center">
 
       <h2>easy login</h2>
-      <hr>
+      <hr class="homepage">
 
       <div class="clearfix"></div>
     </div>
@@ -138,7 +138,7 @@ $this->title = 'Jio Me out';
       <div class="row">
         <div class="col-md-10 col-md-offset-1 phone-up">
           <h1>JOIN OUR Community</h1>
-          <hr>
+          <hr class="homepage">
           <p class='content'>Engage with other users, share anything to your friends, or report product issue to us. </p>
           <p class='content'>Join us and create a better JIO-munity!</p>
 
