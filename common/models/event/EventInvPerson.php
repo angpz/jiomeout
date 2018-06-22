@@ -51,6 +51,11 @@ class EventInvPerson extends \yii\db\ActiveRecord
         return $this->hasOne(Events::className(), ['id' => 'event_id']);
     }
 
+    public function getOnedetail()
+    {
+        return $this->hasOne(EventDetails::className(), ['event_id' => 'event_id']);
+    }
+
     public function getUser()
     {
         return $this->hasOne(User::className(), ['uid' => 'id']);

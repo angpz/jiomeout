@@ -80,7 +80,7 @@ http://www.templatemo.com/tm-506-tinker
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
-<
+
 <?php if(!Yii::$app->user->isGuest): ?>
     <nav class="bottom-right-container"  > 
     
