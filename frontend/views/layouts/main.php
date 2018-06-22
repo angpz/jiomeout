@@ -31,7 +31,7 @@ http://www.templatemo.com/tm-506-tinker
         <title>Jio Me Out</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
 
         <?= Html::csrfMetaTags() ?>

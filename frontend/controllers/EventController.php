@@ -10,7 +10,7 @@ use common\models\user\{User,UserRelations,UserFriendRequests};
 
 class EventController extends Controller
 {   
-     public function actionIndex()
+     public function actionIndex($active ='')
     {
         if (Yii::$app->user->isGuest) {      
             Yii::$app->session->setflash('warning','Please log in first');
@@ -20,12 +20,24 @@ class EventController extends Controller
     
         foreach ($ongoingevent as $num => $checkid) {
         
-            $events = Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->orderby('created_time DESC')->one();
+        $checkevent = Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->orderby('created_time DESC')->one();
         }
             
         $friendrequests = UserFriendRequests::find()->where('requester_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
 
-        return $this->render('index',['events'=>$events,'friendrequests'=>$friendrequests]);
+
+        //
+        $events = EventInvPerson::find()->where('uid = :uid',[':uid'=>Yii::$app->user->identity->id])->joinWith('event','user');
+
+        if (!empty($active)) {
+            $events = $events->andWhere(['=','event_inv_person.status',$active]);
+        }
+
+        $events = $events->andWhere(['=','events.status',2])->andWhere(['!=','events.organizer_id',Yii::$app->user->identity->id])->all();
+        $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
+
+
+        return $this->render('index',['checkevent'=>$checkevent,'friendrequests'=>$friendrequests,'events'=>$events,'created_events'=>$created_events,'active'=>$active]);
     }
     public function actionEventform($type)
     {
