@@ -25,19 +25,17 @@ date_default_timezone_set("Asia/Kuala_Lumpur");
     <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
         <h1><?= Html::encode($this->title) ?></h1>
     </div>
-    <div class="row white-background">
+    <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <div class="friend-nav">
                 <?php $form = ActiveForm::begin(); ?>
-                    <ul>
-                        <li><a href=<?=Url::to(['/event/event-list'])?> <?php if(empty($active)){echo "class='active'";} ?>>All</a></li>
-                        <li><a href=<?=Url::to(['/event/event-list','active'=>2])?> <?php if($active == 2){echo "class='active'";} ?>>Going</a></li>
-                        <li><a href=<?=Url::to(['/event/event-list','active'=>3])?> <?php if($active == 3){echo "class='active'";} ?>>Maybe</a></li>
-                        <li><a href=<?=Url::to(['/event/event-list','active'=>4])?> <?php if($active == 4){echo "class='active'";} ?>>Decline</a></li>
-                        <li><a href='#'>Finished</a></li>
+                    <ul class="col-xs-12 event-nav ">
+                        <a href=<?=Url::to(['/event/event-list'])?> <?php if(empty($active)){echo "class='active'";} ?>><li class="col-xs-2">All</li></a>
+                        <a href=<?=Url::to(['/event/event-list','active'=>2])?> <?php if($active == 2){echo "class='active'";} ?>><li  class="col-xs-2">Going</li></a>
+                        <a href=<?=Url::to(['/event/event-list','active'=>3])?> <?php if($active == 3){echo "class='active'";} ?>><li  class="col-xs-2">Maybe</li></a>
+                        <a href=<?=Url::to(['/event/event-list','active'=>4])?> <?php if($active == 4){echo "class='active'";} ?>><li  class="col-xs-2">Decline</li></a>
+                        <a href='#'><li  class="col-xs-2">Finished</li></a>
                     </ul>
                 <?php ActiveForm::end(); ?>
-            </div>
             <table class='table table-hover event-table'>
 
             <?php if(!empty($created_events)) : ?>
