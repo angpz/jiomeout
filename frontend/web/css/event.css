@@ -1,0 +1,28 @@
+.event-nav{
+	background: #6191bf; /* Fallback background color for non supported browsers */ 
+background-image: -moz-radial-gradient(center 45deg,circle cover, #cde6f9, #6191bf);
+background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%,800, from(#cde6f9), to(#6191bf));
+
+	text-align:center;
+	
+}
+
+.event-nav li{
+	width: 20%;
+	padding: 6px 0 !important;
+   	margin: 0 !important;
+}
+
+.event-nav a li{
+	color: black;
+	
+}
+a.active li{
+	background-color:#008080;
+	color:white;
+}
+ a li:hover{
+	background:#3e72af;
+	color: white;
+}
+

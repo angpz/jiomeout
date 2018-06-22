@@ -1,3 +1,34 @@
+.card-hover:hover{
+  transform: scale(1.01);
+  background-color: rgba(191, 196, 204,0.1);
+}
+
+.card-hide{
+  display:none;
+  height: 130px;
+}
+
+.icon-create{
+  padding: 32px;
+  text-align:center;
+}
+.v1 {
+    border-right: 2px solid rgba(191, 196, 204,0.5);
+    height: 130px;
+}
+.v1:hover{
+  transform: scale(1.01);
+  background-color: rgba(191, 196, 204,0.1);
+}
+.v2{
+    border-left: : 2px solid rgba(191, 196, 204,0.5);
+    height: 130px;
+}
+.v2:hover{
+  transform: scale(1.01);
+  background-color: rgba(191, 196, 204,0.1);
+
+}
 .icon-primary {
   color: #7A9E9F; }
 

@@ -17,7 +17,9 @@ $this->title ='Fill In Details/Lets Vote';
 <div class="site-event">
      <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
     <h1><?= Html::encode($this->title) ?></h1>
-   
+        <?php if($event['poll'] == 1): ?>
+            <p>Poll Closing Time: <?= date('d M Y, g:i a',$event['poll_close_time']); ?></p>
+        <?php endif;?>
   </div>
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
@@ -36,6 +38,7 @@ $this->title ='Fill In Details/Lets Vote';
                                 <td><?= ($k+1).'. '.'<b>'.$selection['event_name'].'</b> at <b>'.$selection['event_location'].'</b> when <b>'.date('d M Y, g:i a',$selection['event_time']).'</b>'; ?></td>
                             </tr>
                         <?php endforeach; ?>
+                        <!-- if selection haven't exceed 5, add other-- >
                         <?php if(count($event['eventSelection'])<5): ?>
                             <tr>
                                 <td><input type="radio" name="selection" value='other'></td>
@@ -63,6 +66,8 @@ $this->title ='Fill In Details/Lets Vote';
                     </div>
 
                 <?php ActiveForm::end(); ?>
+                <!-- up site was polling page -->
+                <!-- below was no polling page, normal form -->
             <?php else: ?>
                 <?php $form = ActiveForm::begin(); ?>
 

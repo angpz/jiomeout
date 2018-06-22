@@ -8,26 +8,17 @@ EventAsset::register($this);
 /* @var $this yii\web\View */
 ?>
 
-    <!--
-        Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-        Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-    -->
-
-       
-
     <div class="container">
-
-
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-sm-6">
+                    <div class="col-lg-3 col-sm-6 ">
                         <div class="card">
-                            <div class="content">
+                            <div class="content card-hover card-create">
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-warning text-center">
-                                            <i class="ti-file"></i>
+                                            <i class="material-icons" style="font-size:50px;color:rgb(243, 187, 69);">note_add</i>
                                         </div>
                                     </div>
                                     <div class="col-xs-7">
@@ -43,36 +34,57 @@ EventAsset::register($this);
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="card">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-xs-5">
-                                        <div class="icon-big icon-success text-center">
-                                            <i class="ti-flag-alt"></i>
+                           
+                            <!-- Will show when hover on Create -->
+                            <div class="card-hide">
+                                <div class="event-create">
+                                    <a  href=<?= Url::to(['/event/eventform','type'=>1]);?>>
+                                        <div class='col-xs-6 icon-create v1'>
+                                            <i class="fa fa-3x fa-calendar"></i>
+                                            <p>Events</p>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-7">
-                                        <div class="numbers">
-                                            <p></p>
-                                            Events
+                                    </a>
+                                    <a  href=<?= Url::to(['/event/eventform','type'=>2]);?>>
+                                        <div class='col-xs-6 icon-create v2'>
+                                            <i class="fa fa-3x fa-film"></i>
+                                            <p>Movie</p>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="footer">
-                                    <hr />
-                                    <div class="stats">
-                                        Nearest :  <?=  $events['title'] ?> 
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    <a href=<?= Url::to(['/event/event-list']);?>>
+                        <div class="col-lg-3 col-sm-6"> 
+                            <div class="card">
+                                <div class="content card-hover">
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <div class="icon-big icon-success text-center">
+                                                <i class="ti-flag-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <div class="numbers">
+                                                <p></p>
+                                                Events
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr />
+                                        <div class="stats">
+                                            Near :  <?=  $checkevent['title'] ?> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href=<?= Url::to(['/user/friends']);?>>
+                    <div class="col-lg-3 col-sm-6 ">
                         <div class="card">
-                            <div class="content">
+                            <div class="content card-hover">
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-danger text-center">
@@ -95,9 +107,10 @@ EventAsset::register($this);
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6">
+                    </a>
+                    <div class="col-lg-3 col-sm-6 ">
                         <div class="card">
-                            <div class="content">
+                            <div class="content card-hover">
                                 <div class="row">
                                     <div class="col-xs-5">
                                         <div class="icon-big icon-info text-center">
@@ -122,75 +135,82 @@ EventAsset::register($this);
                     </div>
                 </div>
                 <div class="row">
-
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Users Behavior</h4>
-                                <p class="category">24 Hours performance</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartHours" class="ct-chart"></div>
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Click
-                                        <i class="fa fa-circle text-warning"></i> Click Second Time
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-reload"></i> Updated 3 minutes ago
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Email Statistics</h4>
-                                <p class="category">Last Campaign Performance</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                        <table class='table table-hover event-table'>
 
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Open
-                                        <i class="fa fa-circle text-danger"></i> Bounce
-                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-timer"></i> Campaign sent 2 days ago
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">2015 Sales</h4>
-                                <p class="category">All products including Taxes</p>
-                            </div>
-                            <div class="content">
-                                <div id="chartActivity" class="ct-chart"></div>
+                            <?php if(!empty($created_events)) : ?>
+                                <?php foreach ($created_events as $key => $created_event) : ?>
+                                        <tr class="default-box">
+                                            <td><div style="float: right;font-size: 2em;"><i class="fa fa-user"></i></div>
+                                                Title: <b><?= $created_event['title']; ?></b><br>
 
-                                <div class="footer">
-                                    <div class="chart-legend">
-                                        <i class="fa fa-circle text-info"></i> Tesla Model S
-                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="ti-check"></i> Data information certified
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                                <?php if(!empty($created_event['eventSelection'])): ?>
+                                                    Detail: <?= $created_event['eventSelection'][0]['event_name']?>
+                                                    <br>
+                                                    Location: <?= $created_event['eventSelection'][0]['event_location'] ?>
+                                                <?php endif; ?>
+                                            </td>
+
+                                            <td>
+                                                <?php if(!empty($created_event['eventSelection'])): ?>
+                                                    Date: <?= date('d M Y, g:i a', $created_event['eventSelection'][0]['event_time']) ?>
+                                                <?php else: echo 'Pending'; endif; ?>
+                                                <br>
+                                                <hr class="td-hr">
+                                                <?= Html::a('Edit','#',['class'=>'btn btn-warning']) ?>
+                                                <?= Html::a('Cancel','#',['class'=>'btn btn-danger','data-confirm'=>"Are you sure?"]) ?>
+                                            </td>
+                                        </tr>
+                                <?php endforeach;?>
+                            <?php endif;?>
+
+                            <?php if (!empty($events)) : ?>
+                                    <?php foreach ($events as $k => $event) : ?>
+                                        <?php switch ($event['status']) {
+                                            case 2:
+                                                $box = 'success-box';
+                                                break;
+                                            case 3:
+                                                $box = 'warning-box';
+                                                break;
+                                            case 4:
+                                                $box = 'danger-box';
+                                                break;
+                                            
+                                            default:
+                                                $box = 'default-box';
+                                                break;
+                                        }
+                                        ?>
+                                        <tr>
+                                            <td class=<?= $box;?>>
+                                                Title: <b><?= $event['event']['title']; ?></b><br>
+                                                Detail: <?= $event['event']['eventSelection'][0]['event_name']; ?><br>
+                                                Location: <?= $event['event']['eventSelection'][0]['event_location']; ?><br>
+                                            </td>
+                                            <td class=<?= $box;?>>Date: <?= date('d M Y, g:i a', $event['event']['eventSelection'][0]['event_time']); ?>
+                                            <br>
+                                            <hr class="td-hr">
+                                                <?php if($event['status'] == 1) :?>
+                                                    
+                                                        <?= Html::a('Going',['/event/confirm-event','eid'=>$event['event_id'],'status'=>2],['class'=>'btn btn-success']) ?>
+                                                        <?= Html::a('Maybe',['/event/confirm-event','eid'=>$event['event_id'],'status'=>3],['class'=>'btn btn-warning','data-confirm'=>"Maybe Going?"]) ?>
+                                                        <?= Html::a('Decline',['/event/confirm-event','eid'=>$event['event_id'],'status'=>4],['class'=>'btn btn-danger','data-confirm'=>"Declining to going?"]) ?>
+
+                                                <?php elseif($event['status'] == 2): ?>
+                                                    Going
+                                                <?php elseif($event['status'] == 3): ?>
+                                                    Maybe
+                                                <?php elseif($event['status'] == 4): ?>
+                                                    Declined
+                                                <?php endif;?>
+
+                                                    </td>
+                                            </tr>
+                                            
+                                    <?php endforeach;?>
+                            <?php endif;?>
+                        </table>
                     </div>
                 </div>
             </div>

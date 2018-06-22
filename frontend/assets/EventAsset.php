@@ -12,7 +12,7 @@ class EventAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/user.css',
+        'css/event.css',
         
         //event-index 
         'css/event-index.css',
@@ -20,7 +20,6 @@ class EventAsset extends AssetBundle
     ];
     public $js = [
         'js/event.js',
-        'js/modal.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

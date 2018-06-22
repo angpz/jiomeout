@@ -1,3 +1,29 @@
+.event-nav{
+    background: radial-gradient(gray,black);
+    text-align:center;
+}
+
+.event-nav li{
+    width: 20%;
+    padding: 6px 0 !important;
+    margin: 0 !important;
+}
+
+.event-nav a li{
+    color: white;
+    
+}
+a.active li{
+    background-color:#008080;
+    color:white;
+}
+ a li:hover{
+    background:#008080;
+    color: white;
+}
+
+
+/**/
 .table-result td{
     width: 10%;
 }
@@ -20,15 +46,16 @@
 }
 
 .friend-nav ul{
-    list-style-type: none;
     margin: 5px;
     padding: 0;
     overflow: hidden;
-    background-color: black;
+    background: radial-gradient(gray,black);
+    width: 100%;
 }
 
 .friend-nav li {
     float: left;
+    width: 33.33%;
 }
 
 .friend-nav li a {
