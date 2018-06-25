@@ -29,7 +29,9 @@ class UserController extends Controller
 
     public function actionFriends()
     {
+        //primary user == user heself, foreign user = his friend
     	$friends = UserRelations::find()->where('primary_uid = :pu',[':pu'=>Yii::$app->user->identity->id])->joinWith('primaryUser','foreignUser')->all();
+        //requester = who sent request to another people, request = received request person
     	$request = UserFriendRequests::find()->where('request_uid = :ru',[':ru'=>Yii::$app->user->identity->id])->joinWith('requester','receiver')->all();
 
     	return $this->render('friends',['friends'=>$friends,'request'=>$request]);
@@ -57,6 +59,7 @@ class UserController extends Controller
     	return $this->render('pending-friends',['request'=>$request]);
     }
 
+    //add/requesting friend
     public function actionAddFriend($id)
     {
     	$user = User::findOne($id);
@@ -93,6 +96,7 @@ class UserController extends Controller
     {
     	$request = UserFriendRequests::find()->andWhere(['=','requester_uid',$id])->andWhere(['=','request_uid',Yii::$app->user->identity->id])->one();
 
+        //attention, to accept friend, both uid must saved to db, e.g : 1 -> 2 AND 2 -> 1
     	$relation = new UserRelations();
     	$relation['primary_uid'] = Yii::$app->user->identity->id;
     	$relation['foreign_uid'] = $id;
@@ -112,6 +116,7 @@ class UserController extends Controller
 
     public function actionDeleteFriend($id)
     {
+        //save 2 times, delete also 2 times
     	$relation = UserRelations::find()->andWhere(['=','primary_uid',Yii::$app->user->identity->id])->andWhere(['=','foreign_uid',$id])->one();
     	$relation2 = UserRelations::find()->andWhere(['=','primary_uid',$id])->andWhere(['=','foreign_uid',Yii::$app->user->identity->id])->one();
 

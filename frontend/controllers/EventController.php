@@ -85,6 +85,7 @@ class EventController extends Controller
 
         if (Yii::$app->request->post()) {
             
+            //it is a no poll event, redirect to its function
             if ($event['poll'] == 0) {
                 $event_details = self::editNoPollDetail(Yii::$app->request->post(),$event);
                 if ($event_details['valid'] ==true) {
@@ -127,9 +128,9 @@ class EventController extends Controller
             return $this->redirect(['/event/event-list']);
         }
 
-        //if event list look, must be modal
-        $word_start = strrpos(Yii::$app->request->referrer, '?r=') + 3; // +3 to not showing ?r= word
-        $permissionName = substr(Yii::$app->request->referrer, $word_start);
+        //if event list look, must be show in modal
+        $word_start = strrpos(Yii::$app->request->referrer, '?r=') + 3; // +3 to not showing ?r= word, it get the begin number of url 
+        $permissionName = substr(Yii::$app->request->referrer, $word_start); //it get the later on url, here means controller/action
         //if from event/eventlist, then return Ajax
         if ($permissionName == 'event/event-list' || $permissionName == 'event%2Fevent-list') {
             return $this->renderAjax('event-fill-details', ['event'=>$event,'event_details' => $event_details,'inv_person'=>$inv_person]);
@@ -142,11 +143,12 @@ class EventController extends Controller
         $data = array();
         $data['valid'] = '';
         $data['message'] = '';
-
+        
         $event_details = new EventDetails();
         $event_details['event_id'] = $event['id'];
         $event_details->load($post);
         $event_details['poll'] = $event['poll'];
+        $event_details['event_time'] = strtotime($event_details['event_time']);
         //status != 2 means it was runnning, only organizer can edit event detail
         if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
             if ($event_details->validate()) {
@@ -194,6 +196,7 @@ class EventController extends Controller
         //choose poll and save to event detail
         $inv_person = EventInvPerson::find()->where('event_id = :eid and uid = :uid',[':eid'=>$eid,':uid'=>Yii::$app->user->identity->id])->one();
         $inv_person['event_detail_id'] = $detail_id;
+        //if user choose a poll, it must be going 
         $inv_person['status'] = 2;
         $inv_person->save();
     }
