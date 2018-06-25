@@ -17,13 +17,18 @@ class EventController extends Controller
             return $this->redirect(['/site/login']);
         }
         $ongoingevent = EventInvPerson::find()->where('uid = :id AND status = 2',[':id'=>Yii::$app->user->identity->id])->all();
-    
+        
+        if(!$ongoingevent == 0){
         foreach ($ongoingevent as $num => $checkid) {
         
         $checkevent = Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->orderby('created_time DESC')->one();
         }
-            
+        }else{
+            $checkevent['title'] = 'No events';
+        }
+
         $friendrequests = UserFriendRequests::find()->where('requester_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
+        $friends = UserRelations::find()->where('primary_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
 
 
         //
@@ -37,7 +42,7 @@ class EventController extends Controller
         $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
 
 
-        return $this->render('index',['checkevent'=>$checkevent,'friendrequests'=>$friendrequests,'events'=>$events,'created_events'=>$created_events,'active'=>$active]);
+        return $this->render('index',['checkevent'=>$checkevent,'friendrequests'=>$friendrequests,'friends'=>$friends,'events'=>$events,'created_events'=>$created_events,'active'=>$active]);
     }
     public function actionEventform($type)
     {
@@ -174,16 +179,12 @@ class EventController extends Controller
         $event_details['event_time'] = strtotime($post['EventDetails']['poll_event_time']);
         $event_details['poll'] = $event['poll'];
 
-        if ($event_details->validate() && $event_details['event_time'] > $event['poll_close_time']) {
+        if ($event_details->validate()) {
 
             $event_details->save();
             $inv_person = self::chosenPoll($event['id'],$event_details['id']);
             $data['valid'] = true;
             $data['message'] = 'Added Event!';
-        }
-        else{
-            $data['valid'] = false;
-            $data['message'] = 'Event time cannot smaller than poll closing time!';
         }
         return $data;
     }
@@ -205,33 +206,16 @@ class EventController extends Controller
             $events = $events->andWhere(['=','event_inv_person.status',$active]);
         }
 
-        $events = $events->andWhere(['=','events.status',2])->andWhere(['!=','events.status',5])->andWhere(['!=','events.organizer_id',Yii::$app->user->identity->id])->all();
-        $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->andWhere(['!=','status',3])->andWhere(['!=','status',5])->joinWith('eventSelection')->all();
+        $events = $events->andWhere(['=','events.status',2])->andWhere(['!=','events.organizer_id',Yii::$app->user->identity->id])->all();
+        $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
 
         return $this->render('event-list',['events'=>$events,'created_events'=>$created_events,'active'=>$active]);
     }
 
-    public function actionEventFinished($eid,$status)
-    {
-        $event = Events::find()->where('events.id=:id',[':id'=>$eid])->joinWith('eventSelection')->one();
-        $event['status'] = $status;
-        $event->save();
-        if ($status == 5) {
-            Yii::$app->session->setFlash('warning','Event Closed!');
-        }
-        else{
-            Yii::$app->session->setFlash('success','Event Closed! Gongratulation!');
-        }
-        
-        return $this->redirect(['/event/event-list']);
-    }
-
     public function actionPassedEvents()
     {
-        $events = EventInvPerson::find()->where('uid = :uid',[':uid'=>Yii::$app->user->identity->id])->joinWith('event','user');
-        $events = $events->andWhere(['!=','event_inv_person.status',1]);
-        $events = $events->andWhere(['=','events.status',3])->andWhere(['!=','events.status',5])->andWhere(['!=','events.organizer_id',Yii::$app->user->identity->id])->all();
-        $created_events = Events::find()->andWhere(['=','status',3])->andWhere(['!=','events.status',5])->where('organizer_id = :oid AND status = :s',[':oid'=>Yii::$app->user->identity->id,':s'=>3])->joinWith('eventSelection')->all();
+        
+        
         $active = 5;
         return $this->render('event-list',['events'=>$events,'created_events'=>$created_events,'active'=>$active]);
     }
