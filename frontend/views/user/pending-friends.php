@@ -9,8 +9,11 @@ use yii\bootstrap\ActiveForm;
 use frontend\assets\UserAsset;
 
 UserAsset::register($this);
-
+$this->title ='Requesting Friend';
 ?>
+<div class="col-lg-6 col-lg-offset-3" style="text-align:center">
+        <h1><?= Html::encode($this->title) ?></h1>
+    </div>
    <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
             <div class="friend-nav">
