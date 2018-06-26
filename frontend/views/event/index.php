@@ -3,7 +3,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\assets\EventAsset;
 
-
+date_default_timezone_set("Asia/Kuala_Lumpur");
 EventAsset::register($this);
 /* @var $this yii\web\View */
 ?>
@@ -30,7 +30,7 @@ EventAsset::register($this);
                                 <div class="footer">
                                     <hr />
                                     <div class="stats">
-                                        <i class="ti-reload"></i> Updated now
+                                        Create New events or movies
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,13 @@ EventAsset::register($this);
                                     <div class="footer">
                                         <hr />
                                         <div class="stats">
-                                            Near :  <?=  $checkevent['title'] ?> 
+                                            Near :  
+                                                <?php 
+                                                    //wrong formula
+                                                    if($statuscheckevent==1){
+                                                        echo $checkevent[0]['title'];
+                                                    }
+                                                ?> 
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +107,7 @@ EventAsset::register($this);
                                     <hr />
                                     <div class="stats">
                                        <!--  <i class="ti-timer"></i> In the last hour -->
-                                       Friend request : <?php echo $friendrequests ?>
+                                       Friends: <?php echo $friends ?>
                                     </div>
                                 </div>
                             </div>

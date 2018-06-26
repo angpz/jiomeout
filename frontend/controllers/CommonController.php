@@ -85,7 +85,7 @@ class CommonController extends Controller
     public static function userNav()
     {
         $menuItems = array();
-        $menuItems[] = ['label' => 'Events', 'url' => Url::to(['/event/event-list'])];
+        $menuItems[] = ['label' => 'Events', 'url' => Url::to(['/event/index'])];
         $menuItems[] = ['label' => 'Calendar', 'url' => Url::to(['/event/calendar'])];
         $menuItems[] = ['label' => 'Friends', 'url' => Url::to(['/user/friends'])];
         $menuItems[] = ['label' => 'Hello '.Yii::$app->user->identity->username,'items'=>[

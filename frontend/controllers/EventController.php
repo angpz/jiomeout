@@ -17,14 +17,17 @@ class EventController extends Controller
             return $this->redirect(['/site/login']);
         }
         $ongoingevent = EventInvPerson::find()->where('uid = :id AND status = 2',[':id'=>Yii::$app->user->identity->id])->all();
+        $checkevent = array();
         
         if(!$ongoingevent == 0){
-        foreach ($ongoingevent as $num => $checkid) {
-        
-        $checkevent = Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->orderby('created_time DESC')->one();
-        }
+            foreach ($ongoingevent as $num => $checkid) {
+                $statuscheckevent = 1; 
+                $checkevent[] =Events::find()->where('id = :id ',[':id'=>$checkid['event_id']])->one();
+            }        
+       
         }else{
-            $checkevent['title'] = 'No events';
+                $statuscheckevent = 0;    
+            $checkevent[0] = 'No events';
         }
 
         $friendrequests = UserFriendRequests::find()->where('requester_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
@@ -42,7 +45,7 @@ class EventController extends Controller
         $created_events = Events::find()->where('organizer_id = :oid',[':oid'=>Yii::$app->user->identity->id])->joinWith('eventSelection')->all();
 
 
-        return $this->render('index',['checkevent'=>$checkevent,'friendrequests'=>$friendrequests,'friends'=>$friends,'events'=>$events,'created_events'=>$created_events,'active'=>$active]);
+        return $this->render('index',['checkevent'=>$checkevent,'friendrequests'=>$friendrequests,'friends'=>$friends,'events'=>$events,'statuscheckevent'=>$statuscheckevent,'created_events'=>$created_events,'active'=>$active]);
     }
     public function actionEventform($type)
     {

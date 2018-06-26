@@ -70,7 +70,6 @@ $this->title ='Fill In Details/Lets Vote';
                 <!-- below was no polling page, normal form -->
             <?php else: ?>
                 <?php $form = ActiveForm::begin(); ?>
-
                     <?= $form->field($event_details, 'event_name')->textInput()->label('Event Name') ?>
                     <?= $form->field($event_details, 'event_location')->textInput()->label('Event Location') ?>
                     <?= $form->field($event_details, 'event_time')->widget(DateTimePicker::classname(), [
@@ -79,13 +78,16 @@ $this->title ='Fill In Details/Lets Vote';
                             'format' => 'yyyy-mm-dd hh:ii:ss',
                             'autoclose'=>true,
                             'startDate' => date('Y-m-d H:ii:ss'), 
-                        ]
+                        ],
+                        'removeButton' => false,
+                        'pickerButton' => ['icon' => 'time'],
                     ])->label('Event Time') ?>
 
                     <div class="form-group">
                         <?= Html::submitButton('Create', ['class' => 'raised-btn main-btn form-control', 'name' => 'signup-button']) ?> <br>
-                        <?= Html::a('Back',['/event/event-list'] ,['class' => 'form-control btn-primary']) ?> <br><br>
+                        <?= Html::a('Back',['/event/event-list'] ,['class' => 'form-control btn-primary']) ?>
                     </div>
+                    <div> <?= Html::a('*If date select has problem,Click me',['/event/event-fill-details','eid'=>$event['id']] ,['target' =>'_blank']) ?> </div>
                 <?php ActiveForm::end(); ?>
             <?php endif;?>
         </div>
