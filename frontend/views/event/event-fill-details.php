@@ -50,11 +50,11 @@ $this->title ='Fill In Details/Lets Vote';
                                     <?= $form->field($event_details, 'poll_event_time')->widget(DateTimePicker::classname(), [
                                         'options' => ['placeholder' => 'Select time'],
                                         'pluginOptions' => [
-                                            'format' => 'yyyy-mm-dd hh:ii:ss',
-                                            'autoclose'=>true,
-                                            'startDate' => date('Y-m-d H:ii:ss'), 
+                                        'format' => 'yyyy-mm-dd hh:ii:ss',
+                                        'autoclose'=>true,
+                                        'startDate' => date('Y-m-d H:ii:ss'), 
                                         ]
-                                    ])->label('') ?>
+                                    ]); ?>
                                 </td>
                             </tr>
                         <?php endif;?>
@@ -80,8 +80,8 @@ $this->title ='Fill In Details/Lets Vote';
                             'startDate' => date('Y-m-d H:ii:ss'), 
                         ],
                         'removeButton' => false,
-                        'pickerButton' => ['icon' => 'time'],
-                    ])->label('Event Time') ?>
+                        
+                    ]) ?>
 
                     <div class="form-group">
                         <?= Html::submitButton('Create', ['class' => 'raised-btn main-btn form-control', 'name' => 'signup-button']) ?> <br>

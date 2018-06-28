@@ -20,7 +20,7 @@ Modal::begin([
       'footer' => '<a href="#" data-dismiss="modal">Close</a>',
 ]);
 Modal::end();
-date_default_timezone_set("Asia/Kuala_Lumpur");
+
 ?>
     <div class="col-lg-6 col-lg-offset-3" style="text-align:center">
         <h1><?= Html::encode($this->title) ?></h1>

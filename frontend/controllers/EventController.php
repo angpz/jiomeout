@@ -11,7 +11,9 @@ use common\models\user\{User,UserRelations,UserFriendRequests};
 class EventController extends Controller
 {   
      public function actionIndex($active ='')
-    {
+    {   
+
+
         if (Yii::$app->user->isGuest) {      
             Yii::$app->session->setflash('warning','Please log in first');
             return $this->redirect(['/site/login']);
@@ -34,7 +36,7 @@ class EventController extends Controller
         $friends = UserRelations::find()->where('primary_uid = :id',[':id'=>Yii::$app->user->identity->id])->count();
 
 
-        //
+        //copy form event list and make some change
         $events = EventInvPerson::find()->where('uid = :uid',[':uid'=>Yii::$app->user->identity->id])->joinWith('event','user');
 
         if (!empty($active)) {
@@ -70,7 +72,7 @@ class EventController extends Controller
     }
 
     public function actionEventFillDetails($eid)
-    {
+    {   
         $event = Events::find()->where('events.id=:id',[':id'=>$eid])->joinWith('eventSelection')->one();
         $inv_person = EventInvPerson::find()->where('event_id = :eid and uid = :uid',[':eid'=>$eid,':uid'=>Yii::$app->user->identity->id])->one();
         if (empty($inv_person)) {
@@ -135,7 +137,7 @@ class EventController extends Controller
         $word_start = strrpos(Yii::$app->request->referrer, '?r=') + 3; // +3 to not showing ?r= word, it get the begin number of url 
         $permissionName = substr(Yii::$app->request->referrer, $word_start); //it get the later on url, here means controller/action
         //if from event/eventlist, then return Ajax
-        if ($permissionName == 'event/event-list' || $permissionName == 'event%2Fevent-list') {
+        if ($permissionName == 'event/event' || $permissionName == 'event%2Fevent-list' || $permissionName == 'event%2Findex' ) {
             return $this->renderAjax('event-fill-details', ['event'=>$event,'event_details' => $event_details,'inv_person'=>$inv_person]);
         }
         return $this->render('event-fill-details', ['event'=>$event,'event_details' => $event_details,'inv_person'=>$inv_person]);
@@ -146,14 +148,26 @@ class EventController extends Controller
         $data = array();
         $data['valid'] = '';
         $data['message'] = '';
+       
+        $checkid = EventDetails::find()->where('event_id = :id',[':id' => $event['id']])->one();
         
-        $event_details = new EventDetails();
+        if($checkid == null){
+            $event_details = new EventDetails();
+        }else{
+            $event_details = $checkid;
+        }
+        
+
         $event_details['event_id'] = $event['id'];
+
         $event_details->load($post);
+
         $event_details['poll'] = $event['poll'];
+
         $event_details['event_time'] = strtotime($event_details['event_time']);
+
         //status != 2 means it was runnning, only organizer can edit event detail
-        if ($event['status'] == 1 && $event['organizer_id']==Yii::$app->user->identity->id) {
+        if ($event['status'] == 1 || $event['status'] == 2 && $event['organizer_id']==Yii::$app->user->identity->id) {
             if ($event_details->validate()) {
                 $event_details->save();
                 $event['status'] = 2;

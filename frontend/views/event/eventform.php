@@ -51,7 +51,7 @@ $this->title = 'Create a '.$title;
                             'pluginOptions' => [
                                 'format' => 'yyyy-mm-dd hh:ii:ss',
                                 'autoclose'=>true,
-                                'startDate' => date('Y-m-d H:ii:ss'), 
+                                'startDate' => date('Y-m-d H:i:s'), 
                             ]
                         ]); ?>
                     </div>
