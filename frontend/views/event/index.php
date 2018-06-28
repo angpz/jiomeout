@@ -202,10 +202,23 @@ Modal::end();
                                                         <?= Html::a('Finished',Url::to(['/event/event-finished','eid'=>$created_event['id'],'status'=>3]),['class'=>'btn btn-success','data-confirm'=>"Finished?"]) ?>
                                                         <?= Html::a('Cancel',Url::to(['/event/event-finished','eid'=>$created_event['id'],'status'=>5]),['class'=>'btn btn-danger','data-confirm'=>"Are you sure to cancel this event?"]) ?>
                                                     <?php else :?>
-                                                        Date: <?= date('d M Y, g:i a', $created_event['eventSelection'][0]['event_time']) ?>
+                                                        <!-- example -->
+                                                        <div class="col-xs-12">
+                                                            <div class="col-xs-6">
+                                                                Date: <?= date('d M Y, g:i a', $created_event['eventSelection'][0]['event_time']) ?>
+                                                            </div>
+                                                            <div class="col-xs-3">
+                                                                Total: 100  
+                                                            </div>   
+                                                            <div class="col-xs-3">
+                                                                Going: <b> 87</b> 
+                                                            </div>      
+                                                        </div>
+                                                        <!-- end example -->
+                                                       
                                                         <br>
                                                         <hr class="td-hr">
-                                                        <?= Html::a('Edit Details',Url::to(['/event/event-fill-details','eid'=>$created_event['id']]),['class'=>'btn btn-warning']) ?>
+                                                        <?= Html::a('Edit Details',Url::to(['/event/event-fill-details','eid'=>$created_event['id']]),['class'=>'btn btn-warning','data-toggle'=>'modal','data-target'=>'#modal-one']) ?>
                                                         <?= Html::a('Cancel',Url::to(['/event/event-finished','eid'=>$created_event['id'],'status'=>5]),['class'=>'btn btn-danger','data-confirm'=>"Are you sure to cancel this event?"]) ?>
                                                     <?php endif;?>
 
